@@ -1,0 +1,397 @@
+/* === OGÓLNE === */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #0c0c0c;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 0;
+}
+
+/* === SEKCJA STARTOWA === */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+.hero p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+/* === SEKCJA WSTĘPNA (OFERTA OGÓLNA) === */
+.intro {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 0;
+}
+.intro img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+.intro-text {
+  flex: 1;
+  color: #ccc;
+}
+.intro-text h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.intro-text p {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+/* === SEKCJA O NAS === */
+.about {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 0;
+}
+.about img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+.about-text {
+  flex: 1;
+  color: #ccc;
+}
+.about-text h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.about-text p {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+/* === SEKCJA OFERTA === */
+.offer {
+  text-align: center;
+  padding: 60px 0;
+}
+.offer h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+.offer-description {
+  max-width: 800px;
+  margin: auto;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+.offer-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.card {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+.card h3 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+.card p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+.card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.card button:hover {
+  background-color: #0062cc;
+}
+
+/* === SEKCJE PRODUKTÓW === */
+.product-section {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 0;
+}
+.product-section img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.product-text {
+  flex: 1;
+  color: #ccc;
+  text-align: left;
+}
+.product-text h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* === LISTY PRODUKTÓW === */
+.product-text ul,
+.product-text ul.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.product-text ul li,
+.product-text ul.product-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 16px;
+  color: #e0e0e0;
+  font-size: 1.2em;
+  line-height: 1.7;
+}
+.product-text ul li::before,
+.product-text ul.product-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffffff;
+  font-size: 1.5em;
+  line-height: 1.1;
+}
+.product-text ul li strong,
+.product-text ul.product-list li strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+.product-text ul li span.highlight,
+.product-text ul.product-list li span.highlight {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* === PRZYCISK === */
+.info-btn {
+  margin-top: 25px;
+  background-color: #007bff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out;
+}
+.info-btn:hover {
+  background-color: #0056b3;
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media(max-width: 900px) {
+  .offer-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-section,
+  .intro,
+  .about {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+  .product-section img,
+  .intro img,
+  .about img {
+    max-width: 100%;
+  }
+  .product-text,
+  .intro-text,
+  .about-text {
+    text-align: center;
+  }
+}
+
+.startujemy .sekcja-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.startujemy .sekcja-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.startujemy .sekcja-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.startujemy h2 {
+  margin-bottom: 20px;
+}
+
+.startujemy p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+/* --- MODAL --- */
+.modal {
+  display: none; /* domyślnie ukryty */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* ciemne półprzezroczyste tło */
+}
+
+/* okienko w środku */
+.modal-content {
+  background-color: #fff; /* białe tło */
+  color: #222; /* ciemny tekst, żeby był widoczny */
+  margin: 10% auto;
+  padding: 25px 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* animacja wejścia */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* przycisk zamykania (X) */
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+}
+.close:hover {
+  color: #000;
+}
+
+/* przycisk wysyłki */
+.send-btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+.send-btn:hover {
+  background-color: #0056b3;
+}
+
+/* pole e-mail */
+#emailInput {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+#mainNav {
+  position: sticky;
+  top: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* większa przestrzeń między linkami */
+  padding: 12px 0; /* większa wysokość */
+}
+
+.nav-bar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em; /* większa czcionka */
+  font-weight: 600;
+  padding: 6px 12px; /* lekki „oddech” wokół linku */
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-bar a:hover {
+  background-color: #ffd700;
+  color: #000;
+}
+
+/* checkbox i opis RODO */
+.rodo {
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.rodo input {
+  margin-top: 4px;
+}
+
+#plany {
+  text-align: center; /* wyśrodkowuje nagłówek i paragraf */
+}
+
+#plany table {
+  margin: 0 auto; /* wyśrodkowuje tabelę */
+  border-collapse: collapse; /* ładniejszy wygląd */
+  width: 80%; /* opcj
+  
+ 
