@@ -83,7 +83,7 @@
   <div class="container">
     <div class="sekcja-flex">
       <div class="sekcja-img">
-        <img src="images/random.jpg" alt="Start projektu LED" loading="lazy">
+        <img src="images/3.jpg" alt="Start projektu LED" loading="lazy">
       </div>
       <div class="sekcja-text">
         <h2>Startujemy na rynek!</h2>
@@ -186,10 +186,10 @@
 
 <!-- Sekcje produktów szczegółowo -->
 <section id="sterownik" class="product-section container">
-  <img src="images/random.jpg" alt="Sterownik LED">
+  <img src="images/4.jpg" alt="Sterownik LED">
   <div class="product-text">
     <h3>Sterownik LED</h3>
-	<p>Planowany start sprzedaż 15.12.2025</p>
+	<p>Planowany start sprzedaż Styczeń 2026</p>
     <p>W zestawie otrzymujesz:</p>
 	<ul>
 		<li>
@@ -218,10 +218,10 @@
 
 
 <section id="zestaw" class="product-section container">
-  <img src="images/random.jpg" alt="Zestaw do montażu">
+  <img src="images/5.jpg" alt="Zestaw do montażu">
   <div class="product-text">
     <h3>Zestaw do montażu</h3>
-	<p>Planowany start sprzedaż: Styczeń 2026</p>
+	<p>Planowany start sprzedaż: Luty 2026</p>
     <ul class="product-list">
       <li>sterownik LED WS28X z pełnym oprogramowaniem i wszystkimi standardowymi funkcjami,</li>
       <li>taśmy LED WS28X przycięte i połączone według Twojego projektu – wszystkie połączenia zespawane i zabezpieczone,</li>
@@ -238,10 +238,10 @@
 
 
 <section id="instalacja" class="product-section container">
-  <img src="images/random.jpg" alt="Instalacja indywidualna">
+  <img src="images/6.jpg" alt="Instalacja indywidualna">
   <div class="product-text">
     <h3>Instalacja indywidualna</h3>
-	<p>Planowany start sprzedaż: Luty 2026</p>
+	<p>Planowany start sprzedaż: Marzec 2026</p>
     <p>W ramach instalacji indywidualnej oferujemy:</p>
     <ul>
       <li>Omówienie i zaplanowanie zachowania instalacji zgodnie z oczekiwaniami klienta,</li>
@@ -318,20 +318,11 @@
 <section id="galeria" class="container">
   <h2 style="text-align:center; font-size:2em;">Galeria</h2>
   <p style="text-align:center;">Zobacz nasze realizacje w formie zdjęć i filmów:</p>
-  
-  <div class="gallery" style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
-    <!-- Zdjęcia -->
-    <img src="images/random.jpg" alt="Projekt 1" width="200" style="cursor:pointer;" onclick="openDialog(this.src)">
-    <img src="images/random.jpg" alt="Projekt 2" width="200" style="cursor:pointer;" onclick="openDialog(this.src)">
-    
-    <!-- Wideo -->
-    <video width="320" height="240" controls muted>
-      <source src="videos/test.mp4" type="video/mp4">
-      Twoja przeglądarka nie obsługuje wideo.
-    </video>
+
+  <div id="gallery" class="gallery" 
+       style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
   </div>
 </section>
-
 
 
 
@@ -580,6 +571,45 @@
   </div>
 </div>
 
+
+
+<script>
+function loadGallery() {
+  const gallery = document.getElementById('gallery');
+
+  const imageFolder = 'images/';
+  const imageCount = 9;
+
+
+  const videoFolder = 'videos/';
+  const videoCount = 1;
+
+  for (let i = 1; i <= imageCount; i++) {
+    const img = document.createElement('img');
+    img.src = `${imageFolder}g${i}.jpg`;
+    img.width = 200;
+    img.style.cursor = 'pointer';
+    img.onclick = () => openDialog(img.src);
+    gallery.appendChild(img);
+  }
+
+  for (let i = 1; i <= videoCount; i++) {
+    const video = document.createElement('video');
+    video.width = 320;
+    video.controls = true;
+    video.muted = true;
+    const source = document.createElement('source');
+    source.src = `${videoFolder}v${i}.mp4`;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    gallery.appendChild(video);
+  }
+}
+
+loadGallery();
+</script>
+
+
 <script>
   function scrollToSection(id) {
     const section = document.getElementById(id);
@@ -590,10 +620,13 @@
 </script>
 
 <script>
+  const API_BASE_URL = "http://localhost:8080"; 
+  const IP_API_URL = "https://api.ipify.org?format=json";
+
   let selectedProduct = null;
 
   function openModal(product) {
-    selectedProduct = product;
+    selectedProduct = product.toUpperCase();
     document.getElementById('interestModal').style.display = 'flex';
   }
 
@@ -601,30 +634,73 @@
     document.getElementById('interestModal').style.display = 'none';
   }
 
-  function submitInterest(event) {
+  async function submitInterest(event) {
     event.preventDefault();
 
-    const email = document.getElementById('emailInput').value;
-    const rodo = document.getElementById('rodoCheckbox').checked;
+    const email = document.getElementById('emailInput').value.trim();
+    const rodoChecked = document.getElementById('rodoCheckbox').checked;
 
-    if (!rodo) {
+    if (!email) {
+      alert('Podaj adres e-mail.');
+      return;
+    }
+
+    if (!rodoChecked) {
       alert('Musisz zaakceptować zgodę RODO.');
       return;
     }
 
+    // 🧠 Pobieramy IP użytkownika z zewnętrznego API:
+    let ipAddress = "unknown";
+    try {
+      const ipResponse = await fetch(IP_API_URL);
+      const ipData = await ipResponse.json();
+      ipAddress = ipData.ip || "unknown";
+    } catch (err) {
+      console.warn("Nie udało się pobrać IP:", err);
+    }
+
+    const rodoText =
+      "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu w sprawie produktu LEDMP.";
+
+    // 💾 JSON zgodny z backendowym DTO InterestRequest:
     const data = {
       email: email,
-      produkt: selectedProduct,
-      data: new Date().toISOString()
+      productType: selectedProduct,
+      rodoConsentGiven: rodoChecked,
+      rodoConsentText: rodoText,
+      ipAddress: ipAddress
     };
 
-    console.log("Wysłany JSON:", data);
+    console.log("📤 Wysyłam JSON do backendu:", data);
 
-    // tu później fetch() np. do backendu
-    closeModal();
-    alert('Dziękujemy! Zapisano Twoje zainteresowanie.');
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/interests`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text);
+      }
+
+      const result = await response.json();
+      console.log("✅ Odpowiedź backendu:", result);
+
+      alert("Dziękujemy! Zapisano Twoje zainteresowanie.");
+      closeModal();
+    } catch (error) {
+      console.error("❌ Błąd przy wysyłaniu:", error);
+      alert("Wystąpił problem przy zapisie zainteresowania.");
+    }
   }
 </script>
+
+
 
 
 <script>
