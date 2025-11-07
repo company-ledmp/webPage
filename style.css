@@ -633,3 +633,68 @@ body {
   background-color: #ffd700;
   color: #000;
 }
+/* === NEONOWE OPASKI PO BOKACH STRONY === */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  width: 6px; /* szerokość opaski */
+  height: 100%;
+  pointer-events: none; /* nie blokuje kliknięć */
+  z-index: 999; /* ponad tłem, pod treścią */
+}
+
+/* lewa – czerwona */
+body::before {
+  left: 0;
+  background: linear-gradient(to bottom, #ff004c, #ff004c90, transparent 90%);
+  box-shadow: 0 0 35px 8px rgba(255, 0, 76, 0.7);
+  animation: redGlow 3s ease-in-out infinite alternate;
+}
+
+/* prawa – niebieska */
+body::after {
+  right: 0;
+  background: linear-gradient(to bottom, #00aaff, #00aaff90, transparent 90%);
+  box-shadow: 0 0 35px 8px rgba(0, 170, 255, 0.7);
+  animation: blueGlow 3s ease-in-out infinite alternate;
+}
+
+/* animacje pulsowania */
+@keyframes redGlow {
+  from { opacity: 0.7; box-shadow: 0 0 20px 6px rgba(255, 0, 76, 0.3); }
+  to   { opacity: 1; box-shadow: 0 0 40px 12px rgba(255, 0, 76, 0.8); }
+}
+
+@keyframes blueGlow {
+  from { opacity: 0.7; box-shadow: 0 0 20px 6px rgba(0, 170, 255, 0.3); }
+  to   { opacity: 1; box-shadow: 0 0 40px 12px rgba(0, 170, 255, 0.8); }
+}
+
+/* === ŚWIETLNY WĄŻ MIĘDZY SEKCJAMI === */
+section {
+  position: relative; /* pozwala ::after ustawić się względem sekcji */
+}
+
+section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -40px; /* odstęp od dolnej krawędzi sekcji */
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #ff004c, #ff007f, #7a00ff, #00aaff);
+  background-size: 300% 100%;
+  animation: ledSnake 6s linear infinite;
+  box-shadow: 0 0 20px 6px rgba(255, 0, 76, 0.3),
+              0 0 40px 12px rgba(0, 170, 255, 0.2);
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+/* animacja przesuwania kolorów */
+@keyframes ledSnake {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
