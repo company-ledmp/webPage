@@ -634,67 +634,76 @@ body {
   color: #000;
 }
 /* === NEONOWE OPASKI PO BOKACH STRONY === */
+/* === ŚWIETLNE PASY PO BOKACH STRONY (FIOLET + NIEBIESKI) === */
 body::before,
 body::after {
   content: "";
   position: fixed;
   top: 0;
-  width: 6px; /* szerokość opaski */
+  width: 12px; /* szerokość paska */
   height: 100%;
-  pointer-events: none; /* nie blokuje kliknięć */
-  z-index: 999; /* ponad tłem, pod treścią */
+  z-index: 1;
+  pointer-events: none; /* nie przeszkadza w klikaniu */
+  transition: opacity 0.5s ease;
 }
 
-/* lewa – czerwona */
+/* lewy pasek — fioletowy */
 body::before {
   left: 0;
-  background: linear-gradient(to bottom, #ff004c, #ff004c90, transparent 90%);
-  box-shadow: 0 0 35px 8px rgba(255, 0, 76, 0.7);
-  animation: redGlow 3s ease-in-out infinite alternate;
+  background: linear-gradient(to bottom, #8000ff, #a000ff80, transparent 90%);
+  box-shadow: 0 0 35px 10px rgba(120, 0, 255, 0.6);
+  animation: purpleGlow 3s ease-in-out infinite alternate;
 }
 
-/* prawa – niebieska */
+/* prawy pasek — niebieski */
 body::after {
   right: 0;
-  background: linear-gradient(to bottom, #00aaff, #00aaff90, transparent 90%);
-  box-shadow: 0 0 35px 8px rgba(0, 170, 255, 0.7);
+  background: linear-gradient(to bottom, #008cff, #00aaff80, transparent 90%);
+  box-shadow: 0 0 35px 10px rgba(0, 170, 255, 0.6);
   animation: blueGlow 3s ease-in-out infinite alternate;
 }
 
-/* animacje pulsowania */
-@keyframes redGlow {
-  from { opacity: 0.7; box-shadow: 0 0 20px 6px rgba(255, 0, 76, 0.3); }
-  to   { opacity: 1; box-shadow: 0 0 40px 12px rgba(255, 0, 76, 0.8); }
+/* animacja pulsowania światła */
+@keyframes purpleGlow {
+  from { opacity: 0.7; box-shadow: 0 0 25px 8px rgba(120, 0, 255, 0.4); }
+  to   { opacity: 1; box-shadow: 0 0 45px 14px rgba(120, 0, 255, 0.9); }
 }
 
 @keyframes blueGlow {
-  from { opacity: 0.7; box-shadow: 0 0 20px 6px rgba(0, 170, 255, 0.3); }
-  to   { opacity: 1; box-shadow: 0 0 40px 12px rgba(0, 170, 255, 0.8); }
+  from { opacity: 0.7; box-shadow: 0 0 25px 8px rgba(0, 170, 255, 0.4); }
+  to   { opacity: 1; box-shadow: 0 0 45px 14px rgba(0, 170, 255, 0.9); }
 }
 
 /* === ŚWIETLNY WĄŻ MIĘDZY SEKCJAMI === */
 section {
-  position: relative; /* pozwala ::after ustawić się względem sekcji */
+  position: relative;
 }
 
 section::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -40px; /* odstęp od dolnej krawędzi sekcji */
+  bottom: -35px; /* odległość od dołu sekcji */
   width: 100%;
   height: 6px;
-  background: linear-gradient(90deg, #ff004c, #ff007f, #7a00ff, #00aaff);
-  background-size: 300% 100%;
-  animation: ledSnake 6s linear infinite;
-  box-shadow: 0 0 20px 6px rgba(255, 0, 76, 0.3),
-              0 0 40px 12px rgba(0, 170, 255, 0.2);
   border-radius: 999px;
   opacity: 0.9;
+
+  /* płynny gradient fiolet → róż → niebieski → fiolet */
+  background: linear-gradient(90deg, #8b00ff, #ff4fd8, #00aaff, #8b00ff);
+  background-size: 400% 100%;
+
+  /* animacja "ruchomego światła" */
+  animation: ledFlow 8s linear infinite;
+
+  /* subtelny glow */
+  box-shadow: 0 0 25px 6px rgba(139, 0, 255, 0.4),
+              0 0 50px 12px rgba(0, 170, 255, 0.3);
 }
 
-/* animacja przesuwania kolorów */
-@keyframes ledSnake {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+/* === ANIMACJA === */
+@keyframes ledFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
