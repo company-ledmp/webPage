@@ -263,48 +263,43 @@ body {
 }
 
 /* === NAWIGACJA GŁÓWNA === */
+/* --- OGÓLNE STYLOWANIE MENU --- */
 .nav-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0,0,0,0.85);
-  padding: 10px 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  padding: 15px 30px;
+  background-color: #111;
+  color: white;
+  position: relative;
   z-index: 1000;
-}
-
-.logo img {
-  height: 50px;
-  width: auto;
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 16px;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: #00aaff;
+  color: #00b3ff;
 }
 
+/* przycisk menu (domyślnie ukryty na desktopie) */
 .menu-toggle {
   display: none;
 }
 
-/* ======== WERSJA MOBILNA ======== */
+/* --- WERSJA MOBILNA --- */
 @media (max-width: 768px) {
 
-  /* przycisk menu ☰ */
+  /* pokaż przycisk ☰ */
   .menu-toggle {
     display: block;
     font-size: 30px;
@@ -318,34 +313,41 @@ body {
     z-index: 1100;
   }
 
-  /* menu — DOMYŚLNIE UKRYTE */
+  /* domyślnie ukryj menu */
   .nav-links {
-    display: none;
     flex-direction: column;
     align-items: flex-start;
-    background-color: rgba(0,0,0,0.95);
+    background-color: rgba(0, 0, 0, 0.95);
     position: absolute;
     top: 60px;
     right: 0;
     width: 100%;
-    padding: 20px;
+    overflow: hidden;
+    max-height: 0; /* ukryte */
+    transition: max-height 0.3s ease;
+    padding: 0 20px;
     box-sizing: border-box;
-    transition: all 0.3s ease;
   }
 
-  /* po kliknięciu w ☰ (czyli .active) — pokazujemy */
+  /* po otwarciu */
   .nav-links.active {
-    display: flex;
+    max-height: 500px; /* otwarte menu */
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .nav-links a {
+    display: block;
     padding: 10px 0;
     width: 100%;
-    color: white;
-    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
-  /* ukrywamy duże obrazki itp. */
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  /* ukryj duże grafiki itp. */
   .product-section img,
   .intro img,
   .about img,
