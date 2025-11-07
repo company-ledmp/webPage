@@ -161,6 +161,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
   gap: 20px;
 }
 
@@ -172,6 +173,7 @@ body {
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
 }
 
 .possibility-cards .card:hover {
@@ -362,17 +364,14 @@ body {
 /* --- WERSJA MOBILNA --- */
 @media (max-width: 768px) {
 
-    .offer-cards {
-    grid-template-columns: 1fr;
-  }
 
   .possibility-cards {
-    flex-direction: column; /* pionowo na telefonie */
-    align-items: center;
+    display: block !important; /* 🔧 wymusza pionowy układ */
   }
 
   .possibility-cards .card {
-    width: 90%; /* szerokość dopasowana do ekranu */
+    width: 90% !important; /* 🔧 dopasowanie szerokości */
+    margin: 0 auto 20px;   /* 🔧 wyśrodkowanie i odstęp */
   }
   /* pokaż przycisk ☰ */
   .menu-toggle {
