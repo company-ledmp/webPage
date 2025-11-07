@@ -79,6 +79,38 @@ body {
   line-height: 1.7;
 }
 
+/* === SEKCJA CO OFERUJEMY === */
+.product-section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 60px 0;
+}
+
+.product-section img {
+  width: 100%;
+  max-width: 400px;
+  height: 400px; /* ogranicza wysokość */
+  object-fit: cover; /* przytnie nadmiar, zachowa proporcje */
+  border-radius: 12px;
+}
+
+.product-text {
+  flex: 1;
+  color: #ccc;
+}
+
+.product-text h3 {
+  font-size: 2.3em;
+  margin-bottom: 20px;
+}
+
+.product-text p {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
 /* === SEKCJA OFERTA === */
 .offer {
   text-align: center;
