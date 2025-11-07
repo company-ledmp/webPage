@@ -86,22 +86,26 @@ body {
   text-align: center;
   padding: 60px 0;
 }
+
 .offer h2 {
   font-size: 2.5em;
   margin-bottom: 30px;
 }
+
 .offer-description {
   max-width: 800px;
   margin: auto;
   color: #ccc;
   margin-bottom: 40px;
 }
+
 .offer-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
 }
+
 .card {
   background-color: #1a1a1a;
   padding: 20px;
@@ -111,18 +115,22 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
+
 .card h3 {
   margin-bottom: 15px;
   color: #fff;
 }
+
 .card p {
   color: #ccc;
   margin-bottom: 20px;
 }
+
 .card button {
   background-color: #007bff;
   color: #fff;
@@ -132,6 +140,7 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
+
 .card button:hover {
   background-color: #0062cc;
 }
@@ -239,8 +248,8 @@ body {
 
 /* === RESPONSYWNOŚĆ === */
 @media(max-width: 900px) {
-  .offer-cards {
-    grid-template-columns: repeat(2, 1fr);
+  .card {
+    width: 45%; /* na tabletach 2 w rzędzie */
   }
   .offer-cards {
     flex-direction: column;
@@ -302,8 +311,13 @@ body {
 /* --- WERSJA MOBILNA --- */
 @media (max-width: 768px) {
 
-    .offer-cards {
-    grid-template-columns: 1fr;
+  .offer-cards {
+    flex-direction: column; /* ustaw jeden pod drugim */
+    align-items: center;
+  }
+
+  .card {
+    width: 90%; /* pełna szerokość na telefonie */
   }
   /* pokaż przycisk ☰ */
   .menu-toggle {
