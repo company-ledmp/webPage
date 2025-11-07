@@ -79,37 +79,7 @@ body {
   line-height: 1.7;
 }
 
-/* === SEKCJA CO OFERUJEMY === */
-.product-section {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 40px;
-  padding: 60px 0;
-}
 
-.product-section img {
-  width: 100%;
-  max-width: 400px;
-  height: 400px; /* ogranicza wysokość */
-  object-fit: cover; /* przytnie nadmiar, zachowa proporcje */
-  border-radius: 12px;
-}
-
-.product-text {
-  flex: 1;
-  color: #ccc;
-}
-
-.product-text h3 {
-  font-size: 2.3em;
-  margin-bottom: 20px;
-}
-
-.product-text p {
-  font-size: 1.1em;
-  line-height: 1.7;
-}
 
 /* === SEKCJA OFERTA === */
 .offer {
@@ -166,30 +136,52 @@ body {
   background-color: #0062cc;
 }
 
+
 /* === SEKCJE PRODUKTÓW === */
 .product-section {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+  align-items: center; /* tekst i zdjęcie są wyśrodkowane w pionie */
   justify-content: space-between;
   gap: 40px;
   padding: 60px 0;
 }
+
+/* Zdjęcie — nieco wyższe, ale z zachowaniem proporcji */
 .product-section img {
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;      /* lekko większe */
+  height: 100%;          /* dopasowanie do tekstu */
+  max-height: 1200px;     /* nie za duże */
+  object-fit: cover;     /* zachowuje proporcje, wypełnia ramkę */
   border-radius: 12px;
   flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
+
+/* Tekst — wyśrodkowany pionowo, spójny z obrazem */
 .product-text {
   flex: 1;
   color: #ccc;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* wyśrodkowanie w pionie */
 }
+
 .product-text h3 {
-  font-size: 2em;
+  font-size: 2.2em;
   margin-bottom: 20px;
   color: #fff;
+}
+
+.product-text p {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+#sterownik img {
+  height: 750px; /* konkretna wysokość, zamiast max-height */
+  object-fit: cover;
 }
 
 /* === LISTY PRODUKTÓW === */
@@ -420,10 +412,48 @@ body {
 #plany {
   text-align: center; /* wyśrodkowuje nagłówek i paragraf */
 }
+/* === LOGO + WYŚRODKOWANE MENU === */
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ponownie wyśrodkowuje całość */
+  position: relative; /* żeby można było ustawić logo absolutnie */
+  padding: 10px 40px;
+}
 
-#plany table {
-  margin: 0 auto; /* wyśrodkowuje tabelę */
-  border-collapse: collapse; /* ładniejszy wygląd */
-  width: 80%; /* opcj
-  
- 
+/* logo po lewej, nie psuje środka */
+.logo {
+  position: absolute;
+  left: 40px; /* przesunięcie od lewej krawędzi */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(255,255,255,0.15);
+}
+
+/* linki znów wyśrodkowane */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #ffd700;
+  color: #000;
+}
