@@ -296,6 +296,17 @@ body {
     padding: 10px 0;
     font-size: 1.1em;
   }
+
+  .product-section img,
+  .intro img,
+  .about img,
+  .startujemy .sekcja-img img {
+    display: none;
+  }
+
+  #galeria img {
+    display: block !important;
+  }
 }
 
 

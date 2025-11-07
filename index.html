@@ -14,8 +14,8 @@
       <img src="images/random.jpg" alt="Logo LEDMP">
     </div>
 
-    <!-- to nowy element -->
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <button class="menu-toggle" aria-label="Otwórz menu">☰</button>
 
     <div class="nav-links">
       <a href="#info">Nasze sterowniki</a>
@@ -28,6 +28,7 @@
     </div>
   </nav>
 </header>
+
 
 
 <!-- Sekcja startowa -->
@@ -769,10 +770,18 @@ function openDialog(src) {
 </script>
 
 <script>
-function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('active');
-}
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("active");
+  });
+});
 </script>
+
+
+
 </body>
 
 
