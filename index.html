@@ -419,8 +419,8 @@
   </div>
   
   <div class="led-calculator">
-  <h3>Kalkulator zasilacza</h3>
-  <p>Oblicz, jaki zasilacz będzie potrzebny dla Twojej instalacji LED:</p>
+  <h3>Kalkulator zasilania</h3>
+  <p>Oblicz, jak moc zsilania będzie potrzebna dla Twojej instalacji LED:</p>
 
   <label for="ledDensity">Wybierz gęstość LED:</label>
   <select id="ledDensity">
@@ -435,7 +435,7 @@
 
   <button onclick="calculatePower()">Oblicz</button>
 
-<p>Szacunkowa moc zasilacza (przy maksymalnym ustawieniu bieli): <span id="powerResult">0</span> W</p>
+<p>Szacunkowa moc zasilania (przy maksymalnym ustawieniu bieli): <span id="powerResult">0</span> W</p>
 
 </div>
 
@@ -620,7 +620,7 @@ loadGallery();
 </script>
 
 <script>
-  const API_BASE_URL = "http://localhost:8080"; 
+  const API_BASE_URL = "https://webbe-wlc1.onrender.com/interests"; 
   const IP_API_URL = "https://api.ipify.org?format=json";
 
   let selectedProduct = null;
@@ -650,7 +650,6 @@ loadGallery();
       return;
     }
 
-    // 🧠 Pobieramy IP użytkownika z zewnętrznego API:
     let ipAddress = "unknown";
     try {
       const ipResponse = await fetch(IP_API_URL);
@@ -663,7 +662,6 @@ loadGallery();
     const rodoText =
       "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu w sprawie produktu LEDMP.";
 
-    // 💾 JSON zgodny z backendowym DTO InterestRequest:
     const data = {
       email: email,
       productType: selectedProduct,
@@ -710,7 +708,7 @@ loadGallery();
 
     let powerPerMeter = 8; 
     if (density !== 30) {
-      powerPerMeter = 8 * (density / 30); // liniowe skalowanie
+      powerPerMeter = 8 * (density / 30);
     }
 
     const totalPower = powerPerMeter * length;
@@ -733,4 +731,68 @@ function openDialog(src) {
 </script>
 
 </body>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("🚀 Skrypt harmonogramu został załadowany i uruchomiony!");
+
+  (() => {
+    const TARGET_URL = "https://webbe-wlc1.onrender.com/interests"; 
+    const INTERVAL_MS = 14 * 60 * 1000 + 30 * 1000; 
+    const ACTIVE_START_HOUR = 6;  
+    const ACTIVE_END_HOUR = 2;
+
+    function inActiveWindow(d = new Date()) {
+      const h = d.getHours();
+      return (h >= ACTIVE_START_HOUR) || (h < ACTIVE_END_HOUR);
+    }
+
+    async function doFetch() {
+      const now = new Date();
+      if (!inActiveWindow(now)) {
+        console.log(`[${now.toLocaleTimeString()}] ⏸ Poza oknem 06:00–02:00 – pomijam wywołanie`);
+        return;
+      }
+
+      try {
+        console.log(`[${now.toLocaleTimeString()}] 🔄 Wysyłam GET → ${TARGET_URL}`);
+        const resp = await fetch(TARGET_URL, { method: 'GET', cache: 'no-store' });
+        console.log(`[${now.toLocaleTimeString()}] ✅ Odpowiedź: ${resp.status}`);
+      } catch (e) {
+        console.error(`[${now.toLocaleTimeString()}] ❌ Błąd fetch: ${e.message}`);
+      }
+    }
+
+    function schedule() {
+      const now = new Date();
+      const startToday = new Date(now);
+      startToday.setHours(ACTIVE_START_HOUR, 0, 0, 0);
+
+      let firstDelay;
+      if (now < startToday) {
+        firstDelay = startToday - now;
+        console.log(`🕕 Przed 06:00 — pierwsze wywołanie o 06:00`);
+      } else {
+        const elapsed = now - startToday;
+        const remainder = elapsed % INTERVAL_MS;
+        firstDelay = remainder === 0 ? 0 : INTERVAL_MS - remainder;
+        console.log(`🕒 Pierwsze wywołanie za ${Math.round(firstDelay / 1000)} s`);
+      }
+
+      // 🧠 dodatkowy log przy starcie timera
+      console.log(`⏱️ Harmonogram aktywny — wywołanie co ${INTERVAL_MS / 1000}s`);
+
+      setTimeout(() => {
+        doFetch(); // pierwsze wywołanie po opóźnieniu
+        setInterval(doFetch, INTERVAL_MS); // potem cyklicznie
+      }, firstDelay);
+    }
+
+    schedule();
+  })();
+});
+</script>
+
+
 </html>
