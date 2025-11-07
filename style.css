@@ -266,36 +266,48 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* przycisk hamburger */
   .menu-toggle {
     display: block;
     position: absolute;
     right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 28px;
     color: white;
+    background: none;
+    border: none;
     cursor: pointer;
     z-index: 1100;
   }
 
+  /* linki menu — domyślnie ukryte */
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: rgba(0,0,0,0.95);
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.95);
     position: absolute;
-    top: 60px;
+    top: 100%;
     right: 0;
-    width: 220px;
+    width: 100%;
     padding: 20px;
-    border-radius: 0 0 0 10px;
+    box-sizing: border-box;
+    text-align: left;
   }
 
+  /* po kliknięciu — menu pokazuje się */
   .nav-links.active {
     display: flex;
   }
 
   .nav-links a {
-    padding: 10px 0;
+    display: block;
+    width: 100%;
+    padding: 12px 0;
     font-size: 1.1em;
   }
+
 
   .product-section img,
   .intro img,

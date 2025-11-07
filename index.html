@@ -6,6 +6,20 @@
   <title>LEDMP</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  menuToggle.addEventListener("click", function() {
+    navLinks.classList.toggle("active");
+  });
+});
+</script>
+
+
 <body>
 
 <header id="mainNav">
@@ -768,20 +782,6 @@ function openDialog(src) {
   dialog.showModal();
 }
 </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-
-  menuToggle.addEventListener("click", function() {
-    navLinks.classList.toggle("active");
-  });
-});
-</script>
-
-
-
 </body>
 
 
