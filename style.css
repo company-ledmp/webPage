@@ -137,10 +137,12 @@ body {
 }
 
 
-/* === SEKCJA MOŻLIWOŚCI STEROWNIKA === */
+/* === SEKCJA MOŻLIWOŚCI === */
 .possibility {
   text-align: center;
   padding: 60px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .possibility h2 {
