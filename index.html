@@ -13,6 +13,10 @@
     <div class="logo">
       <img src="images/random.jpg" alt="Logo LEDMP">
     </div>
+
+    <!-- to nowy element -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
     <div class="nav-links">
       <a href="#info">Nasze sterowniki</a>
       <a href="#startujemy">Informacje na start</a>
@@ -764,6 +768,11 @@ function openDialog(src) {
 }
 </script>
 
+<script>
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('active');
+}
+</script>
 </body>
 
 
