@@ -377,12 +377,28 @@
 
 
 <!-- Sekcja galerii -->
-<section id="galeria" class="container">
-  <h2 style="text-align:center; font-size:2em;">Galeria</h2>
-  <p style="text-align:center;">Zobacz nasze realizacje w formie zdjęć i filmów:</p>
+<section id="galeria" class="gallery-section container">
+  <h2>Galeria</h2>
+  <p>Zobacz nasze realizacje w formie zdjęć i nagrań:</p>
 
-  <div id="gallery" class="gallery" 
-       style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+  <!-- CZĘŚĆ ZDJĘCIOWA -->
+  <div class="gallery-block">
+    <h3>📸 Zdjęcia</h3>
+    <div id="photo-gallery" class="gallery-grid"></div>
+  </div>
+
+  <!-- CZĘŚĆ WIDEO -->
+  <div class="gallery-block">
+    <h3>🎬 Nagrania</h3>
+    <div id="video-gallery" class="gallery-grid"></div>
+  </div>
+
+  <!-- LIGHTBOX (tylko dla zdjęć) -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" src="">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
 </section>
 
@@ -634,40 +650,65 @@
 
 
 <script>
-function loadGallery() {
-  const gallery = document.getElementById('gallery');
+const photoFolder = 'images/';
+const photoCount = 9;
 
-  const imageFolder = 'images/';
-  const imageCount = 9;
+const videoFolder = 'videos/';
+const videoCount = 2;
 
+const photoGallery = document.getElementById('photo-gallery');
+const videoGallery = document.getElementById('video-gallery');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox .close');
+const prevBtn = document.querySelector('.lightbox .prev');
+const nextBtn = document.querySelector('.lightbox .next');
 
-  const videoFolder = 'videos/';
-  const videoCount = 1;
+let photos = [];
+let currentIndex = 0;
 
-  for (let i = 1; i <= imageCount; i++) {
-    const img = document.createElement('img');
-    img.src = `${imageFolder}g${i}.jpg`;
-    img.width = 200;
-    img.style.cursor = 'pointer';
-    img.onclick = () => openDialog(img.src);
-    gallery.appendChild(img);
-  }
-
-  for (let i = 1; i <= videoCount; i++) {
-    const video = document.createElement('video');
-    video.width = 320;
-    video.controls = true;
-    video.muted = true;
-    const source = document.createElement('source');
-    source.src = `${videoFolder}v${i}.mp4`;
-    source.type = 'video/mp4';
-    video.appendChild(source);
-    gallery.appendChild(video);
-  }
+// ŁADOWANIE ZDJĘĆ
+for (let i = 1; i <= photoCount; i++) {
+  const img = document.createElement('img');
+  img.src = `${photoFolder}g${i}.jpg`;
+  img.addEventListener('click', () => openLightbox(i - 1));
+  photoGallery.appendChild(img);
+  photos.push(img.src);
 }
 
-loadGallery();
+// ŁADOWANIE WIDEO
+for (let i = 1; i <= videoCount; i++) {
+  const video = document.createElement('video');
+  video.src = `${videoFolder}v${i}.mp4`;
+  video.controls = true;
+  video.muted = true;
+  videoGallery.appendChild(video);
+}
+
+// === LIGHTBOX ===
+function openLightbox(index) {
+  currentIndex = index;
+  lightboxImg.src = photos[currentIndex];
+  lightbox.style.display = 'flex';
+}
+
+closeBtn.onclick = () => lightbox.style.display = 'none';
+
+prevBtn.onclick = () => {
+  currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+  lightboxImg.src = photos[currentIndex];
+};
+nextBtn.onclick = () => {
+  currentIndex = (currentIndex + 1) % photos.length;
+  lightboxImg.src = photos[currentIndex];
+};
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) lightbox.style.display = 'none';
+});
 </script>
+
+
 
 
 <script>

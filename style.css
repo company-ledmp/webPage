@@ -13,6 +13,157 @@ body {
   padding: 40px 0;
 }
 
+/* === GALERIA === */
+/* === GALERIA Z UJEDNOLICONYMI KAFELKAMI === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+/* --- KAFELKI --- */
+.gallery-grid img,
+.gallery-grid video {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 16 / 9; /* 🔧 ujednolicenie wizualnej wysokości */
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  object-fit: contain; /* 🔧 zachowuje pełne proporcje bez ucinania */
+  background-color: #000; /* tło dla pionowych filmów/zdjęć */
+}
+
+/* --- EFEKT HOVER --- */
+.gallery-grid img:hover,
+.gallery-grid video:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(0,170,255,0.6);
+}
+
+/* --- DLA PIONOWYCH ELEMENTÓW --- */
+.gallery-grid img.portrait,
+.gallery-grid video.portrait {
+  object-fit: contain;
+  background-color: #000;
+}
+
+
+
+
+/* === LIGHTBOX === */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,170,255,0.8);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  background: rgba(0,170,255,0.5);
+}
+
+.lightbox .prev { left: 40px; }
+.lightbox .next { right: 40px; }
+
+
+/* === LIGHTBOX === */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,170,255,0.8);
+}
+
+/* zamknięcie (X) */
+.lightbox .close {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* strzałki */
+.lightbox .prev,
+.lightbox .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.lightbox .prev:hover,
+.lightbox .next:hover {
+  background: rgba(0,170,255,0.5);
+}
+
+.lightbox .prev { left: 40px; }
+.lightbox .next { right: 40px; }
+
+
 /* === SEKCJA STARTOWA === */
 .hero {
   text-align: center;
