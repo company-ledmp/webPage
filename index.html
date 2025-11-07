@@ -12,9 +12,19 @@
 document.addEventListener("DOMContentLoaded", function() {
   const toggle = document.querySelector(".menu-toggle");
   const links = document.querySelector(".nav-links");
+  const allLinks = document.querySelectorAll(".nav-links a");
+
+  links.classList.remove("active");
 
   toggle.addEventListener("click", () => {
     links.classList.toggle("active");
+  });
+
+
+  allLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      links.classList.remove("active");
+    });
   });
 });
 </script>

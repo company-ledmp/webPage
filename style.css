@@ -304,7 +304,7 @@ body {
 /* ======== WERSJA MOBILNA ======== */
 @media (max-width: 768px) {
 
-  /* Przycisk menu */
+  /* przycisk menu ☰ */
   .menu-toggle {
     display: block;
     font-size: 30px;
@@ -315,12 +315,12 @@ body {
     position: absolute;
     right: 20px;
     top: 15px;
-    z-index: 1100; /* aby był nad menu */
+    z-index: 1100;
   }
 
-  /* Menu domyślnie ukryte */
+  /* menu — DOMYŚLNIE UKRYTE */
   .nav-links {
-    display: none !important;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     background-color: rgba(0,0,0,0.95);
@@ -330,19 +330,22 @@ body {
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    transition: all 0.3s ease;
   }
 
-  /* Pokazuje się po kliknięciu */
+  /* po kliknięciu w ☰ (czyli .active) — pokazujemy */
   .nav-links.active {
-    display: flex !important;
+    display: flex;
   }
 
   .nav-links a {
     padding: 10px 0;
     width: 100%;
+    color: white;
+    text-decoration: none;
   }
 
-  /* Ukryj duże obrazy */
+  /* ukrywamy duże obrazki itp. */
   .product-section img,
   .intro img,
   .about img,
@@ -350,11 +353,11 @@ body {
     display: none;
   }
 
-  /* Galeria zawsze widoczna */
   #galeria img {
     display: block !important;
   }
 }
+
 
 
 
