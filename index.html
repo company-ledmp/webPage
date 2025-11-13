@@ -720,11 +720,16 @@ lightbox.addEventListener('click', (e) => {
   }
 </script>
 
+
+<!-- Loader -->
+<div id="loaderOverlay">
+  <div class="spinner"></div>
+  <span>Wysyłanie danych...</span>
+</div>
+
 <script>
   const API_BASE_URL = "https://webbe-wlc1.onrender.com/interests"; 
-  // const API_BASE_URL = "http://localhost:8080/interests"; 
-
-  const IP_API_URL = "https://api.ipify.org?format=json";
+  //const API_BASE_URL = "https://api.ipify.org?format=json";
 
   let selectedProduct = null;
 
@@ -735,6 +740,10 @@ lightbox.addEventListener('click', (e) => {
 
   function closeModal() {
     document.getElementById('interestModal').style.display = 'none';
+  }
+
+  function showLoader(show) {
+    document.getElementById('loaderOverlay').style.display = show ? 'flex' : 'none';
   }
 
   async function submitInterest(event) {
@@ -752,6 +761,8 @@ lightbox.addEventListener('click', (e) => {
       alert('Musisz zaakceptować zgodę RODO.');
       return;
     }
+
+    showLoader(true);
 
     let ipAddress = "unknown";
     try {
@@ -776,11 +787,9 @@ lightbox.addEventListener('click', (e) => {
     console.log("📤 Wysyłam JSON do backendu:", data);
 
     try {
-      const response = await fetch(`${API_BASE_URL}`, {
+      const response = await fetch(API_BASE_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
 
@@ -797,9 +806,12 @@ lightbox.addEventListener('click', (e) => {
     } catch (error) {
       console.error("❌ Błąd przy wysyłaniu:", error);
       alert("Wystąpił problem przy zapisie zainteresowania.");
+    } finally {
+      showLoader(false);
     }
   }
 </script>
+
 
 
 
@@ -837,64 +849,27 @@ function openDialog(src) {
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("🚀 Skrypt harmonogramu został załadowany i uruchomiony!");
-
-  (() => {
-    const TARGET_URL = "https://webbe-wlc1.onrender.com/interests/health"; 
-    const INTERVAL_MS = 14 * 60 * 1000 + 30 * 1000; 
-    const ACTIVE_START_HOUR = 6;  
-    const ACTIVE_END_HOUR = 2;
-
-    function inActiveWindow(d = new Date()) {
-      const h = d.getHours();
-      return (h >= ACTIVE_START_HOUR) || (h < ACTIVE_END_HOUR);
-    }
+  (function () {
+    const TARGET_URL = "https://webbe-wlc1.onrender.com/interests/health";
+    const INTERVAL_MS = (14 * 60 + 30) * 1000; // 14 min 30 s = 870000 ms
 
     async function doFetch() {
       const now = new Date();
-      if (!inActiveWindow(now)) {
-        console.log(`[${now.toLocaleTimeString()}] ⏸ Poza oknem 06:00–02:00 – pomijam wywołanie`);
-        return;
-      }
-
       try {
         console.log(`[${now.toLocaleTimeString()}] 🔄 Wysyłam GET → ${TARGET_URL}`);
         const resp = await fetch(TARGET_URL, { method: 'GET', cache: 'no-store' });
         console.log(`[${now.toLocaleTimeString()}] ✅ Odpowiedź: ${resp.status}`);
-      } catch (e) {
-        console.error(`[${now.toLocaleTimeString()}] ❌ Błąd fetch: ${e.message}`);
+      } catch (err) {
+        console.error(`[${now.toLocaleTimeString()}] ❌ Błąd fetch: ${err && err.message ? err.message : err}`);
       }
     }
 
-    function schedule() {
-      const now = new Date();
-      const startToday = new Date(now);
-      startToday.setHours(ACTIVE_START_HOUR, 0, 0, 0);
+    doFetch();
+    setInterval(doFetch, INTERVAL_MS);
 
-      let firstDelay;
-      if (now < startToday) {
-        firstDelay = startToday - now;
-        console.log(`🕕 Przed 06:00 — pierwsze wywołanie o 06:00`);
-      } else {
-        const elapsed = now - startToday;
-        const remainder = elapsed % INTERVAL_MS;
-        firstDelay = remainder === 0 ? 0 : INTERVAL_MS - remainder;
-        console.log(`🕒 Pierwsze wywołanie za ${Math.round(firstDelay / 1000)} s`);
-      }
-
-      // 🧠 dodatkowy log przy starcie timera
-      console.log(`⏱️ Harmonogram aktywny — wywołanie co ${INTERVAL_MS / 1000}s`);
-
-      setTimeout(() => {
-        doFetch(); // pierwsze wywołanie po opóźnieniu
-        setInterval(doFetch, INTERVAL_MS); // potem cyklicznie
-      }, firstDelay);
-    }
-
-    schedule();
+    console.log(`⏱️ Harmonogram uruchomiony — pierwsze wywołanie od razu, następne co ${INTERVAL_MS / 1000}s`);
   })();
 });
 </script>
-
 
 </html>
