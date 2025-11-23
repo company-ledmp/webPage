@@ -171,7 +171,7 @@ body {
 }
 .hero h1 {
   font-family: "Doto", sans-serif;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   background: linear-gradient(to right, #004aad, #865aff, #f570f5);
   -webkit-background-clip: text;
