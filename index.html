@@ -1,875 +1,942 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LEDMP</title>
   <link rel="stylesheet" href="style.css">
+  <!-- da się bez poświaty i przyciac  zeby samo logo było wieksze? -->
 </head>
 
 
 
 <body>
   <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const toggle = document.querySelector(".menu-toggle");
-    const links = document.querySelector(".nav-links");
-    const allLinks = document.querySelectorAll(".nav-links a");
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.querySelector(".menu-toggle");
+      const links = document.querySelector(".nav-links");
+      const allLinks = document.querySelectorAll(".nav-links a");
 
- 
-    links.classList.remove("active");
 
-    toggle.addEventListener("click", () => {
-      links.classList.toggle("active");
-    });
+      links.classList.remove("active");
 
-    allLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        links.classList.remove("active");
+      toggle.addEventListener("click", () => {
+        links.classList.toggle("active");
+      });
+
+      allLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          links.classList.remove("active");
+        });
       });
     });
-  });
   </script>
 
 
-<header id="mainNav">
-  <nav class="nav-bar">
-    <div class="logo">
-      <img src="images/logo_bt.png" alt="Logo LEDMP">
-    </div>
-
-
-    <button class="menu-toggle" aria-label="Otwórz menu">☰</button>
-
-    <div class="nav-links">
-      <a href="#info">Nasze sterowniki</a>
-      <a href="#startujemy">Informacje na start</a>
-      <a href="#oferta">Oferta</a>
-      <a href="#mozliwosci">Możliwości sterownika</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#led-info">Paski LED</a>
-      <a href="#plany">Plany</a>
-    </div>
-  </nav>
-</header>
-
-
-
-<!-- Sekcja startowa -->
-<section id="start" class="hero container section-balanced" >
-  <h1>Twój świat w kolorze</h1>
-  <p>Zaprojektuj oświetlenie tak, jak chcesz. My zajmiemy się resztą.</p>
-</section>
-
-<!-- Sekcja Co oferujemy -->
-<section  class="product-section container section-balanced">
-  <img src="images/1.jpg" alt="Inteligentne sterowniki LED">
-  <div class="product-text">
-    <h3>Co oferujemy</h3>
-    <p>
-      Oferujemy inteligentne sterowniki do taśm LED, które już w standardzie zawierają zestaw efektownych trybów świecenia. 
-      Jeśli jednak marzy Ci się własna iluminacja – nawet połączona z czujnikami dźwięku, ruchu czy innymi systemami – 
-      zaprojektujemy ją specjalnie dla Ciebie. Nasze sterowniki rozwijają się razem z Tobą – możesz zamawiać nowe tryby, 
-      otrzymywać aktualizacje i mieć pewność, że Twoje oświetlenie zawsze pozostanie wyjątkowe. 
-      Utrzymujemy stały kontakt z każdym klientem, dzięki czemu Twoje urządzenie może zyskać coś nowego w każdej chwili.
-    </p>
-  </div>
-</section>
-
-
-
-
-<!-- Sekcja Więcej niż zwykły sterownik -->
-<section id="info" class="product-section container section-balanced">
-  <img src="images/2.jpg" alt="Więcej niż zwykły sterownik">
-  <div class="product-text">
-    <h3>Więcej niż zwykły sterownik</h3>
-    <p>
-      Zajmujemy się programowaniem i rozwojem sterowników do taśm LED WS28X, nadając im zupełnie nowe możliwości. 
-      Nasze oprogramowanie pozwala tworzyć niepowtarzalne efekty świetlne — dokładnie takie, jakich oczekuje klient. 
-      Ty wymyślasz motyw, a my go projektujemy i wgrywamy bezpośrednio do Twojego sterownika.
-    </p>
-
-    <p>
-      Sterowniki działają w sieci Wi-Fi i są obsługiwane przez naszą aplikację mobilną, dzięki której możesz zmieniać kolory, 
-      tryby i efekty w czasie rzeczywistym oraz otrzymywać zdalne aktualizacje bez wychodzenia z domu. 
-      Obecnie jedno urządzenie obsługuje do 3600 diód LED (nawet 120 metrów taśmy, zależnie od gęstości).
-      Aplikacja w połaczniu ze strownikiem oferuje już na starcie wiele funkcjnoalności a wraz z darmowymi aktualizacjami zakres możliwości będzie stale się zwiększać.
-    </p>
-
-    <p>
-      To właśnie elastyczność, indywidualne podejście i ciągły rozwój wyróżniają nasze sterowniki na tle standardowych rozwiązań. 
-      Nasze sterowniki nie mają stałego zakresu możliwości ani z góry określonej liczby trybów – wraz z aktualizacjami możliwości stale rosną, 
-      wprowadzamy nowe efekty, a Ty możesz wymyślić własny, prywatny tryb świecenia stworzony tylko dla siebie.
-    </p>
-
-    <p>
-      Dzięki temu Twoje oświetlenie nie stoi w miejscu — ewoluuje razem z Tobą.
-    </p>
-
-    <p>
-      Naszym celem jest dostarczenie sterowników, które świecą dokładnie tak, jak chcesz — dziś i w przyszłości.
-    </p>
-  </div>
-</section>
-
-<!-- Sekcja NA start -->
-<section id="startujemy" class="sekcja startujemy container section-balanced">
-  <div class="container">
-    <div class="sekcja-flex">
-      <div class="sekcja-img">
-        <img src="images/3.jpg" alt="Start projektu LED" loading="lazy">
+  <header id="mainNav">
+    <nav class="nav-bar">
+      <div class="logo">
+        <img src="images/logo_bt.png" alt="Logo LEDMP">
       </div>
-      <div class="sekcja-text">
-        <h2>Startujemy na rynek!</h2>
-		<p>
-			Jesteśmy młodą firmą, która właśnie wprowadza na rynek autorski sterownik LED. 
-			Na tym etapie <strong>badamy realne zainteresowanie</strong> naszym rozwiązaniem – dlatego 
-		<strong>nie uruchomiliśmy jeszcze sprzedaży</strong>.  
-		</p>
 
-<p>
-  Obecnie zamiast przycisku <em>„Kup teraz”</em> znajdziesz opcję
-  <strong>„Wyraź zainteresowanie”</strong>. Po kliknięciu możesz wpisać swój adres e-mail,
-  aby dołączyć do naszej <strong>listy pierwszych wspierających</strong>.
-</p>
 
-<p>
-  Każdy, kto do niej dołączy, otrzyma:
-  <br>– <strong>kod rabatowy -20%</strong> na Allegro na zakup nszego produktu,
-  <br>– <strong>informacje o starcie sprzedaży</strong> i nadchodzących premierach.
-</p>
+      <button class="menu-toggle" aria-label="Otwórz menu">☰</button>
 
-<p>
-  Osoby, które jako pierwsi wspierający dokonają zakupu dowolnego produktu do <strong>Maja 2026 roku</strong>,
-  otrzymają <strong>status VIP</strong> — to nasze podziękowanie za zaufanie i realne wsparcie projektu.
-</p>
+      <div class="nav-links">
+        <a href="#info">Nasze sterowniki</a>
+        <a href="#startujemy">Informacje na start</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#mozliwosci">Możliwości sterownika</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#led-info">Paski LED</a>
+        <a href="#plany">Plany</a>
+      </div>
+    </nav>
+  </header>
 
-<p>
-  Status VIP zapewnia:
-  <br>– <strong>preferencyjne ceny</strong> przy kolejnych zakupach,
-  <br>– <strong>dostęp do unikalnych trybów</strong> dostępnych wyłącznie dla VIP,
-  <br>– <strong>możliwość wpływu na rozwój projektu</strong> poprzez przekazywanie opinii.
-</p>
 
-<p>
-  To właśnie dzięki pierwszym wspierającym ten projekt ma szansę się rozwijać i osiągnąć sukces.  
-  Nie zapominamy o tych, którzy byli z nami od początku — status VIP to nasze podziękowanie za zaufanie i realne wsparcie.  
-  Zajrzyj do sekcji
-  <a href="javascript:void(0)" onclick="scrollToSection('plany')">
-    <strong>„Co planujemy dalej”</strong>
-  </a>,
-  aby zobaczyć, w jakim kierunku rozwijamy projekt.
-</p>
 
-		        <p>
-          Cała sprzedaż będzie realizowana <strong>poprzez platformę Allegro</strong>, co zapewni naszym
-          klientom <strong>pełne bezpieczeństwo zakupów, łatwe płatności, szybkie wysyłki</strong>
-          oraz <strong>prosty proces zwrotu</strong>.
+  <!-- Sekcja startowa -->
+  <section id="start" class="hero container section-balanced">
+    <h1>Twój świat w kolorze</h1>
+    <p>Zaprojektuj oświetlenie tak, jak chcesz. My zajmiemy się resztą.</p>
+  </section>
+
+  <!-- Sekcja Co oferujemy -->
+  <section class="product-section container section-balanced">
+    <img src="images/1.jpg" alt="Inteligentne sterowniki LED">
+    <div class="product-text">
+      <h3>Co oferujemy</h3>
+      <p>
+        Oferujemy inteligentne sterowniki do taśm LED, które już w standardzie zawierają zestaw efektownych trybów
+        świecenia.
+        Jeśli jednak marzy Ci się własna iluminacja – nawet połączona z czujnikami dźwięku, ruchu czy innymi systemami –
+        zaprojektujemy ją specjalnie dla Ciebie. Całość sterowana jest wygodnie z poziomu aplikacji w telefonie, w pełni
+        dostępnej w języku polskim.
+        Nasze sterowniki rozwijają się razem z Tobą – możesz zamawiać nowe tryby,
+        otrzymywać aktualizacje i mieć pewność, że Twoje oświetlenie zawsze pozostanie wyjątkowe.
+        Utrzymujemy stały kontakt z każdym klientem, dzięki czemu Twoje urządzenie może zyskać coś nowego w każdej
+        chwili.
+      </p>
+    </div>
+  </section>
+
+
+
+
+  <!-- Sekcja Więcej niż zwykły sterownik -->
+  <section id="info" class="product-section container section-balanced">
+    <img src="images/2.jpg" alt="Więcej niż zwykły sterownik">
+    <div class="product-text">
+      <h3>Więcej niż zwykły sterownik</h3>
+      <p>
+        Zajmujemy się <strong>programowaniem i rozwojem sterowników do taśm LED WS28X</strong>, nadając im zupełnie nowe
+        możliwości.
+        Nasze oprogramowanie pozwala tworzyć <strong>niepowtarzalne efekty świetlne</strong> — dokładnie takie, jakich
+        oczekuje klient.
+        <strong>Ty wymyślasz motyw, a my go projektujemy i wgrywamy</strong> bezpośrednio do Twojego sterownika.
+      </p>
+
+      <p>
+        Sterowniki działają w <strong>sieci Wi-Fi</strong> i są obsługiwane przez <strong>naszą aplikację
+          mobilną</strong>, dzięki której możesz zmieniać kolory,
+        tryby i efekty w czasie rzeczywistym oraz otrzymywać <strong>zdalne aktualizacje</strong> bez wychodzenia z
+        domu.
+        Obecnie jedno urządzenie obsługuje <strong>do 3600 diod LED</strong> (nawet 120 metrów taśmy, zależnie od
+        gęstości).
+        Aplikacja w połączeniu ze sterownikiem już na starcie oferuje <strong>wiele funkcjonalności</strong>, a wraz z
+        darmowymi aktualizacjami zakres możliwości będzie się stale zwiększać.
+        Nasza aplikacja jest <strong>przystępna, intuicyjna</strong>, a do tego <strong>w pełni w języku
+          polskim</strong>, dzięki czemu każdy użytkownik z łatwością wykorzysta pełnię możliwości urządzenia.
+      </p>
+
+      <p>
+        To właśnie <strong>elastyczność, indywidualne podejście i ciągły rozwój</strong> wyróżniają nasze sterowniki na
+        tle standardowych rozwiązań.
+        Nasze sterowniki nie mają stałego zakresu możliwości ani z góry określonej liczby trybów – wraz z aktualizacjami
+        <strong>możliwości stale rosną</strong>,
+        wprowadzamy <strong>nowe efekty</strong>, a Ty możesz wymyślić <strong>własny, prywatny tryb świecenia</strong>
+        stworzony tylko dla Ciebie.
+      </p>
+
+      <p>
+        Dzięki temu <strong>Twoje oświetlenie nie stoi w miejscu — ewoluuje razem z Tobą</strong>.
+      </p>
+
+      <p>
+        Naszym celem jest dostarczenie sterowników, które <strong>świecą dokładnie tak, jak chcesz — dziś i w
+          przyszłości</strong>.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Sekcja NA start -->
+  <section id="startujemy" class="sekcja startujemy container section-balanced">
+    <div class="container">
+      <div class="sekcja-flex">
+        <div class="sekcja-img">
+          <img src="images/3.jpg" alt="Start projektu LED" loading="lazy">
+        </div>
+        <div class="sekcja-text">
+          <h2>Startujemy!</h2>
+          <p>
+            Jesteśmy młodą polską firmą, która właśnie wprowadza na rynek autorski sterownik LED.
+            Na tym etapie <strong>badamy realne zainteresowanie</strong> naszym rozwiązaniem – dlatego
+            <strong>nie uruchomiliśmy jeszcze sprzedaży</strong>.
+          </p>
+
+          <p>
+            Obecnie zamiast przycisku <em>„Kup teraz”</em> znajdziesz opcję
+            <strong>„Wyraź zainteresowanie”</strong>. Po kliknięciu możesz wpisać swój adres e-mail,
+            aby dołączyć do naszej <strong>listy pierwszych wspierających</strong>.
+          </p>
+
+          <p>
+            Każdy, kto do niej dołączy, otrzyma:
+            <br>– <strong>kod rabatowy -20%</strong> na Allegro na zakup naszego produktu,
+            <br>– <strong>informacje o starcie sprzedaży</strong> i nadchodzących premierach.
+          </p>
+
+          <p>
+            Osoby, które jako pierwsi wspierający dokonają zakupu dowolnego produktu do <strong>Maja 2026 roku</strong>,
+            otrzymają <strong>status VIP</strong> — to nasze podziękowanie za zaufanie i realne wsparcie projektu.
+          </p>
+
+          <p>
+            Status VIP zapewnia:
+            <br>– <strong>preferencyjne ceny</strong> przy kolejnych zakupach,
+            <br>– <strong>dostęp do unikalnych trybów</strong> dostępnych wyłącznie dla VIP,
+            <br>– <strong>możliwość wpływu na rozwój projektu</strong> poprzez przekazywanie opinii.
+          </p>
+
+          <p>
+            To właśnie dzięki pierwszym wspierającym ten projekt ma szansę się rozwijać i osiągnąć sukces.
+            Nie zapominamy o tych, którzy byli z nami od początku — status VIP to nasze podziękowanie za zaufanie i
+            realne wsparcie.
+            Zajrzyj do sekcji
+            <a href="javascript:void(0)" onclick="scrollToSection('plany')">
+              <strong>„Co planujemy dalej”</strong>
+            </a>,
+            aby zobaczyć, w jakim kierunku rozwijamy projekt.
+          </p>
+
+          <p>
+            Cała sprzedaż będzie realizowana <strong>poprzez platformę Allegro</strong>, co zapewni <strong>pełne
+              bezpieczeństwo zakupów, łatwe płatności, szybkie wysyłki</strong>
+            oraz <strong>prosty proces zwrotu</strong>.
+          </p>
+          <p>
+            W przypadku osób, które będą chciały zamówić <strong>instalację gotową lub indywidualne efekty</strong>,
+            przygotujemy <strong>oferty wyceniane indywidualnie</strong> — również realizowane przez Allegro,
+            aby zachować wygodę i przejrzystość obsługi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Sekcja Oferta -->
+  <section id="oferta" class="offer container">
+    <h2>Oferta</h2>
+    <p class="offer-description">
+      Oferujemy trzy warianty naszych rozwiązań, dopasowane do różnych potrzeb i poziomów zaawansowania.
+      Niezależnie od tego, czy chcesz samodzielnie podłączyć taśmy LED, otrzymać zestaw gotowy do montażu,
+      czy stworzyć indywidualną iluminację dopasowaną do Twojej przestrzeni — znajdziesz tu coś dla siebie.
+    </p>
+
+    <div class="offer-cards">
+      <div class="card">
+        <h2>Sterownik</h2>
+        <p>
+          Podstawowe rozwiązanie dla osób, które posiadają własne taśmy LED WS28X. lub planują stworzyć własną
+          instalację.
+          Sterownik dostarczany jest w estetycznej, gotowej do podłączenia obudowie – wystarczy wpiąć go do zasilania
+          i połączyć z paskiem LED WS28X. <a href="javascript:void(0)" onclick="scrollToSection('mozliwosci')"
+            style="color:#007bff; text-decoration:none;">
+            Więcej o możliwościach samego sterownika możesz przeczytać tutaj
+          </a>.
+
+        </p>
+        <button onclick="document.getElementById('sterownik').scrollIntoView({ behavior: 'smooth' })">
+          Zobacz szczegóły
+        </button>
+      </div>
+
+      <div class="card">
+        <h2>Sterownik + zestaw do montażu</h2>
+        <p>
+          Rozszerzona wersja podstawowego zestawu — otrzymujesz wszystko to, co zawiera sterownik,
+          a dodatkowo przygotowujemy dla Ciebie kompletny zestaw gotowy do montażu i uruchomienia,
+          bez lutowania i skomplikowanej konfiguracji.
+          Zbieramy od Ciebie jedynie informacje o długości i rodzaju taśm LED,
+          a my dbamy o wszystkie kwestie techniczne: odpowiednie zasilacze,
+          punkty dodatkowego zasilania, przygotowanie przewodów i połączeń.
+          Wszystko jest tak przygotowane, abyś mógł jedynie umieścić taśmy w korytkach lub na ścianach,
+          podłączyć kable zgodnie z instrukcją i cieszyć się gotową iluminacją.
+        </p>
+        <button onclick="document.getElementById('zestaw').scrollIntoView({ behavior: 'smooth' })">
+          Zobacz szczegóły
+        </button>
+      </div>
+
+      <div class="card">
+        <h2>Projekt indywidualny</h2>
+        <p>
+          Pełna usługa dla osób, które chcą spersonalizowaną iluminację dopasowaną do swojej przestrzeni i pomysłów.
+          Współpracujemy z klientem bezpośrednio, precyzyjnie ustalając docelowe efekty świetlne, dobór czujników oraz
+          sposób, w jaki system ma reagować na zdarzenia w domu i na zewnątrz.
+        </p>
+        <button onclick="document.getElementById('instalacja').scrollIntoView({ behavior: 'smooth' })">
+          Zobacz szczegóły
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sekcje produktów szczegółowo -->
+  <section id="sterownik" class="product-section container section-balanced">
+    <img src="images/4.jpg" alt="Sterownik LED">
+    <div class="product-text">
+      <h3>Sterownik</h3>
+      <p>Planowany start sprzedaż Luty 2026</p>
+      <p>Planowana cena: 119zł</p>
+
+      <p>W zestawie otrzymujesz:</p>
+      <ul>
+        <li>
+          <strong>W pełni zaprogramowany sterownik</strong> z zestawem 10 gotowych trybów świecenia,
+          których liczba będzie stopniowo zwiększana w ramach darmowych aktualizacji.
+        </li>
+        <li>Darmowe aktualizacje <span class="highlight">oprogramowania i aplikacji mobilnej</span> – regularnie
+          dodajemy nowe tryby i funkcje</li>
+        <li>Możliwość stworzenia własnego, unikalnego trybu świecenia przygotowanego <strong>specjalnie dla
+            Ciebie</strong> (usługa dodatkowa, indywidualnie wyceniana)</li>
+        <li>Pełna obsługa przez Wi-Fi – steruj światłem z dowolnego miejsca w domu</li>
+        <li>Tworzenie zdarzeń – <span class="highlight">automatyczne włączanie lub wyłączanie</span> o określonej
+          godzinie</li>
+        <li>Obsługa do 3600 diod LED (limit ten może zostać zwiększony w kolejnych wersjach oprogramowania)</li>
+        <li><strong>Wsparcie techniczne</strong> i 2 lata gwarancji na sterownik</li>
+      </ul>
+      <p>
+        <strong>Uwaga:</strong> przy samodzielnym montażu niezwykle ważne jest bezpieczne podłączenie oraz odpowiednie
+        dobranie zasilania.
+        Taśmy LED wymagają stabilnego, odpowiednio mocnego źródła zasilania oraz doprowadzania zasilania w kilku
+        punktach taśmy, szczególnie na dłuższych odcinkach, aby świeciły równomiernie i nie przegrzewały się.
+        <a href="javascript:void(0)" onclick="scrollToSection('led-info')" style="color:#007bff; text-decoration:none;">
+          Więcej o samych teśmach LED możesz przeczytać tutaj
+        </a>
+      </p>
+
+      <button class="info-btn" onclick="openModal('driver')">Zainteresowany?</button>
+    </div>
+  </section>
+
+
+  <section id="zestaw" class="product-section container section-balanced">
+    <img src="images/5.jpg" alt="Zestaw do montażu">
+    <div class="product-text">
+      <h3>Sterownik + zestaw do montażu</h3>
+      <p>Planowany start sprzedaż: Marzec 2026</p>
+      <ul class="product-list">
+        <li>Sterownik do taśm LED WS28X z pełnym oprogramowaniem i wszystkimi standardowymi funkcjami</li>
+        <li>Taśmy LED WS28X przycięte i połączone według Twojego projektu – wszystkie połączenia zlutowane i
+          zabezpieczone</li>
+        <li>Dopasowane zasilacze umieszczone w estetycznych obudowach</li>
+        <li>Komplet przewodów przygotowany specjalnie pod długość i układ Twojej instalacji</li>
+        <li>Wyznaczone punkty dodatkowego zasilania w przypadku dłuższych taśm</li>
+        <li>Szczegółową instrukcję podłączenia</li>
+        <li><strong>Wsparcie techniczne</strong> i 2 lata gwarancji na sprzęt dostarczony przez nas</li>
+      </ul>
+
+       <p class="note">
+        <strong>Uwaga:</strong>  Zestaw dostarczany przez nas jest w pełni przygotowany do montażu po stronie sterownika i oprogramowania oraz dostarczenia niezbędnych przewodów,
+        jednak nie wykonujemy montażu fizycznego ani prac związanych z instalacją elektryczną.
+        Instalacja gniazdek, przewodów czy korytek LED leży po stronie klienta.
+      </p>
+
+      <button class="info-btn" onclick="openModal('kit')">Zainteresowany?</button>
+    </div>
+  </section>
+
+
+  <section id="instalacja" class="product-section container section-balanced">
+    <img src="images/6.jpg" alt="Instalacja indywidualna">
+    <div class="product-text">
+      <h3>Projekt indywidualny</h3>
+      <p>Planowany start sprzedaż: Kwiecień 2026</p>
+
+
+      <p>W ramach projektu indywidualnego oferujemy:</p>
+      <ul>
+        <li>Omówienie i zaplanowanie działania całej instalacji zgodnie z oczekiwaniami klienta</li>
+        <li>Dobór oraz dostarczenie gotowych czujników i urządzeń współpracujących ze sterownikiem</li>
+        <li>Integrację oświetlenia LED z czujnikami i zdarzeniami (np. włączanie przy ruchu, otwarciu drzwi, aktywacji
+          bramy itp.)</li>
+        <li>Pełne przygotowanie sterownika z oprogramowaniem i konfiguracją oraz zestawu gotowego do montażu</li>
+        <li>Indywidualne, spersonalizowane tryby świecenia stworzone wyłącznie dla Ciebie i według Twojego pomysłu</li>
+        <li><strong>Wsparcie techniczne</strong> oraz 2 lata gwarancji na sprzęt dostarczony przez nas</li>
+      </ul>
+
+      <p class="note">
+        <strong>Uwaga:</strong> Zestaw dostarczany przez nas jest w pełni przygotowany do montażu po stronie sterownika i oprogramowania oraz dostarczenia niezbędnych czujników czy przewodów,
+        jednak nie wykonujemy montażu fizycznego ani prac związanych z instalacją elektryczną.
+        Instalacja gniazdek, przewodów czy korytek LED leży po stronie klienta.
+      </p>
+
+
+
+      <button class="info-btn" onclick="openModal('custom')">Zainteresowany?</button>
+    </div>
+  </section>
+
+
+  <!-- Sekcja Możliwości sterownika -->
+  <section id="mozliwosci" class="possibility">
+    <h2>Możliwości sterownika</h2>
+    <p class="possibility-description">
+      Nasz sterownik daje Ci pełną kontrolę nad paskiem LED – od ręcznego wyboru koloru po inteligentne sterowanie i
+      rozwijanie możliwości wraz z aktualizacjami.
+    </p>
+
+    <div class="possibility-cards">
+      <div class="card">
+        <h3>Ustawianie koloru w czasie rzeczywistym</h3>
+        <p>Wybierz dowolny kolor na kole barw i od razu zobacz efekt na pasku LED. Nie trzeba wysyłać koloru – zmiana
+          jest natychmiastowa, co pozwala precyzyjnie dobrać odcień do nastroju lub wystroju wnętrza.</p>
+      </div>
+
+      <div class="card">
+        <h3>Różnorodne tryby świecenia</h3>
+        <p>Do wyboru jest wiele efektów – od płynnych przejść między kolorami, przez efekt tęczy i symulacje wschodu
+          słońca, po świąteczne iluminacje. Każdy znajdzie coś dla siebie.</p>
+      </div>
+
+      <div class="card">
+        <h3>Tryby personalizowane</h3>
+        <p>Możesz zamówić indywidualny tryb świecenia stworzony specjalnie dla Ciebie. Idealne rozwiązanie dla osób,
+          które chcą, by ich oświetlenie było naprawdę wyjątkowe.</p>
+      </div>
+
+      <div class="card">
+        <h3>Ustawianie harmonogramu</h3>
+        <p>Dodawaj codzienne zdarzenia – ustaw, o której godzinie diody LED mają się włączyć, wyłączyć lub zmienić tryb.
+          Dzięki temu oświetlenie działa automatycznie, a Ty nie musisz o tym pamiętać.</p>
+      </div>
+
+      <div class="card">
+        <h3>Pełna rekonfigurowalność i bezpieczeństwo</h3>
+        <p>Możesz dynamicznie zwiększać liczbę diód LED, które obsługuje sterownik, nadawać mu własną nazwę w sieci lub
+          zmienić samą sieć. Każdy sterownik chroniony jest indywidualnym PIN-em właściciela, co gwarantuje
+          bezpieczeństwo konfiguracji.</p>
+      </div>
+
+      <div class="card">
+        <h3>Automatyczne wykrywanie</h3>
+        <p>Po pierwszej konfiguracji sterownik staje się widoczny w lokalnej sieci Wi-Fi przez co inni domownicy posiadający
+          naszą aplikację mogą dodać go za pomocą jednego kliknięcia, bez konieczności ponownej konfiguracji sterownika.
+          Strownik od razu pojawi się jako widoczny w aplikacji i gotowy do obsługi.</p>
+      </div>
+      <div class="card">
+        <h3>Tworzenie grup sterowników</h3>
+        <p>Połącz kilka sterowników działających w tej samej sieci Wi-Fi w jedną grupę. Pozwala to sterować wszystkimi
+          diodami LED w domu jednym kliknięciem.</p>
+      </div>
+
+      <div class="card">
+        <h3>Sterowanie przez Wi-Fi</h3>
+        <p>Dedykowana aplikacja umożliwia łatwe i wygodne sterowanie z poziomu telefonu – zmieniaj kolory, efekty i
+          ustawienia z dowolnego miejsca w domu. Całość w pełni po polsku i zaprojektowana tak, by korzystanie z niej było maksymalnie intuicyjne!</p>
+      </div>
+
+      <div class="card">
+        <h3>Zdalne aktualizacje</h3>
+        <p>Sterownik obsługuje zdalne aktualizacje oprogramowania, które umożliwiają dodawanie nowych funkcji i efektów.
+          Kupując produkt teraz, wspierasz jego rozwój i zyskujesz coraz więcej możliwości w przyszłości. Aktualizacje
+          trybów indywidualnych są realizowane na zamówienie.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Sekcja galerii -->
+  <section id="galeria" class="gallery-section container">
+    <h2>Galeria</h2>
+    <p>Zobacz nasze realizacje w formie zdjęć i nagrań:</p>
+
+    <!-- CZĘŚĆ ZDJĘCIOWA -->
+    <div class="gallery-block">
+      <h3>📸 Zdjęcia</h3>
+      <div id="photo-gallery" class="gallery-grid"></div>
+    </div>
+
+    <!-- CZĘŚĆ WIDEO -->
+    <div class="gallery-block">
+      <h3>🎬 Nagrania</h3>
+      <div id="video-gallery" class="gallery-grid"></div>
+    </div>
+
+    <!-- LIGHTBOX (tylko dla zdjęć) -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img id="lightbox-img" src="">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </section>
+
+
+
+
+  <!-- Sekcje inforamcji o led -->
+  <section id="led-info" class="offer">
+    <h2>Pigułka wiedzy o paskach LED</h2>
+    <p class="offer-description">
+      Poznaj taśmy LED, które obsługuje nasz sterownik, aby dobrać wersję idealną dla siebie.
+      Wszystkie dostępne są w wariantach <strong>30/60</strong> diod na metr (te gęstości oferowane są przez nas w
+      usłudze "zestaw gotowy do montażu"),
+      a także <strong>72</strong> i <strong>144</strong> diód na metr.
+      Pamiętaj – im więcej diód LED, tym większe zapotrzebowanie na moc i częstsze „wstrzykiwanie” zasilania.
+      Dobierz zasilanie rozsądnie lub skorzystaj z naszej oferty.
+    </p>
+
+    <div class="offer-cards">
+
+      <div class="card">
+        <h3>WS2811</h3>
+        <p>
+          Taśma <strong>WS2811</strong> to klasyczne i niezawodne rozwiązanie adresowalne działające na napięciu
+          <strong>12V</strong>. Każdy układ sterujący obsługuje <strong>trzy diody LED jako jeden punkt
+            świetlny</strong>,
+          więc nie można kontrolować każdej z nich osobno.
         </p>
         <p>
-          W przypadku osób, które będą chciały zamówić <strong>instalację gotową lub indywidualne efekty</strong>,
-          przygotujemy <strong>oferty wyceniane indywidualnie</strong> — również realizowane przez Allegro,
-          aby zachować wygodę i przejrzystość obsługi.
+          W praktyce nie stanowi to problemu przy <strong>dłuższych instalacjach</strong> — np. wokół domu czy
+          garażu. Różnica pomiędzy pojedynczym a potrójnym sterowaniem jest wtedy praktycznie
+          niezauważalna, a efekt pozostaje płynny i spójny.
+        </p>
+        <p>
+          Dzięki zasilaniu 12V, WS2811 <strong>lepiej znosi spadki napięcia</strong> i pozwala na
+          <strong>rzadsze wstrzykiwania zasilania</strong>. To sprawia, że instalacja jest prostsza w wykonaniu i
+          bardziej stabilna więc są to idalne budżetowe paski dla długich insalacji.
+        </p>
+        <p>
+          To świetny, <strong>budżetowy wybór</strong> dla osób, które chcą stworzyć <strong>długie odcinki taśm
+            LED</strong>
+          bez utraty jakości światła — z pełnymi kolorami RGB, płynnymi efektami i dużą niezawodnością.
         </p>
       </div>
+
+      <div class="card">
+        <h3>WS2812B</h3>
+        <p>
+          <strong>WS2812B</strong> to nowoczesna taśma LED działająca na napięciu <strong>5V</strong>,
+          w której <strong>każda dioda jest w pełni adresowalna</strong>. Oznacza to, że każda z nich
+          może świecić <strong>innym kolorem i z inną intensywnością</strong>, co pozwala tworzyć
+          wyjątkowo płynne animacje i efekty świetlne z pełną kontrolą nad każdym punktem.
+          <br><br>
+          Taśma doskonale sprawdza się w <strong>krótszych instalacjach</strong> – np. w domu,
+          wokół sufitu podwieszanego, biurka, wnęk, czy w małych projektach dekoracyjnych,
+          gdzie liczy się <strong>dokładność, płynność i efekt wizualny</strong>.
+          <br><br>
+          Warto jednak pamiętać, że WS2812B pracuje w systemie 5V, co oznacza
+          <strong>większą wrażliwość na spadki napięcia</strong>. Przy dłuższych odcinkach lub gęstych taśmach konieczne
+          jest <strong>częstsze wstrzykiwanie zasilania</strong>, aby zachować
+          pełną jasność i stabilność kolorów.
+          <br><br>
+          Dlatego WS2812B to <strong>idealny wybór do efektownych, krótszych instalacji</strong>,
+          w których chcesz uzyskać maksymalną płynność, kolorystykę i indywidualne sterowanie każdą diodą.
+        </p>
+        <div class="info-note">
+          <p>
+            🔹 Taśma <strong>WS2813</strong> to ulepszona wersja WS2812B, wyposażona w
+            <strong>dodatkową zapasową linię danych</strong>, która zapewnia ciągłość działania nawet przy awarii jednej
+            diody.
+            Nasz sterownik jest z nią <strong>w pełni kompatybilny</strong>, choć nie oferujemy jej w standardowych
+            zestawach montażowych.
+            W praktyce działanie i efekty świetlne pozostają <strong>takie same jak w WS2812B</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>WS2815</h3>
+        <p>
+          <strong>WS2815</strong> to nowoczesne rozwinięcie popularnej serii WS2812B – łączy precyzyjne sterowanie
+          każdą diodą LED z zaletami napięcia <strong>12V</strong>, znanymi z modelu WS2811.
+        </p>
+        <p>
+          Każdy punkt świetlny jest <strong>adresowalny indywidualnie</strong>, co pozwala tworzyć niezwykle płynne
+          przejścia kolorów, animacje i efekty świetlne o wysokiej dokładności.
+          Jednocześnie zasilanie 12V zapewnia <strong>większą stabilność napięcia</strong> i
+          <strong>rzadszą potrzebę wstrzykiwania zasilania</strong> – nawet przy dłuższych odcinkach taśmy.
+        </p>
+        <p>
+          WS2815 posiada również <strong>podwójną linię sygnałową</strong>, dzięki czemu w przypadku uszkodzenia jednej
+          diody pozostałe nadal działają, co czyni tę taśmę wyjątkowo niezawodną.
+        </p>
+        <p>
+          To idealny wybór dla osób, które chcą połączyć <strong>pełną adresowalność</strong> z
+          <strong>prostotą montażu i wysoką stabilnością</strong>.
+          Choć WS2815 są najdroższym rozwiązaniem, oferuje <strong>najwyższą jakość i równomierne oświetlenie</strong>
+          nawet
+          przy dużych instalacjach.
+        </p>
+      </div>
+
     </div>
-  </div>
-</section>
+
+    <div class="led-calculator">
+      <h3>Kalkulator zasilania</h3>
+      <p>Oblicz, jaka moc zsilania będzie potrzebna dla Twojej instalacji LED:</p>
+
+      <label for="ledDensity">Wybierz gęstość LED:</label>
+      <select id="ledDensity">
+        <option value="30">30 LED/m</option>
+        <option value="60">60 LED/m</option>
+        <option value="72">72 LED/m</option>
+        <option value="144">144 LED/m</option>
+      </select>
+
+      <label for="length">Długość instalacji (m):</label>
+      <input type="number" id="length" min="1" value="1">
+
+      <button onclick="calculatePower()">Oblicz</button>
+
+      <p>Szacunkowa moc zasilania (przy maksymalnym ustawieniu bieli): <span id="powerResult">0</span> W</p>
+
+    </div>
+
+  </section>
 
 
 
-<!-- Sekcja Oferta -->
-<section  id= "oferta" class="offer container">
-  <h2>Oferta</h2>
-  <p class="offer-description">
-    Oferujemy trzy warianty naszych rozwiązań, dopasowane do różnych potrzeb i poziomów zaawansowania. 
-    Niezależnie od tego, czy chcesz samodzielnie podłączyć taśmy LED, otrzymać zestaw gotowy do montażu, 
-    czy stworzyć indywidualną iluminację dopasowaną do Twojej przestrzeni — znajdziesz tu coś dla siebie.
-  </p>
+  <!-- Sekcje planów na przyszłość -->
+  <section id="plany" class="container">
+    <h2>Plany na przyszłość</h2>
+    <p>Tu opisujemy pomysły na nowe funkcje i udoskonalenia – stale rozwijamy nasze sterowniki, by dawały jeszcze więcej możliwości!</p>
 
-  <div class="offer-cards">
-    <div class="card">
-      <h2>Sterownik LED</h2>
-      <p>
-        Podstawowe rozwiązanie dla osób, które posiadają własne taśmy LED WS28X. lub planują stworzyć własną instalację.
-        Sterownik dostarczany jest w estetycznej, gotowej do podłączenia obudowie – wystarczy wpiąć go do zasilania 
-        i połączyć z paskiem LED WS28X.  <a href="javascript:void(0)" onclick="scrollToSection('mozliwosci')" style="color:#007bff; text-decoration:none;">
-		Więcej o możliwościach samego sterownika możesz przeczytać tutaj 
-	</a>.
-  
+    <table border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Plan / Funkcja</th>
+          <th style="width: 60%;">Opis</th>
+          <th style="width: 15%;">Status</th>
+        </tr>
+      </thead>
+      <tbody id="plansTableBody">
+        <tr>
+          <td>Rozwój funkcjonalności i aplikacji</td>
+          <td>
+            Ciągły rozwój naszych sterowników i aplikacji mobilnej, aby były coraz bardziej przyjazne dla
+            użytkownika.
+            W planach jest m.in.: <strong>rozszerzenie funkcjonalności zdarzeń</strong> – możliwość ustawiania zdarzeń 
+            z wybraną datą lub zakresem dat, <strong>optymalizacja</strong>
+            w celu zwiększenia liczby obsługiwanych diód oraz wprowadzanie nowych funkcji w samej
+            aplikacji,
+            tak aby użytkownicy mogli w pełni korzystać z potencjału swojego oświetlenia.
+            Wszystkie aktualizacje będą dostępne <strong>za darmo</strong>.
+            <br><br>
+            Dodatkowo, przewidujemy regularne dodawanie <strong>kolejnych funkcji</strong>, które przyjdą nam do głowy lub które
+            zasugerują sami użytkownicy w trakcie rozwoju produktu.
+            Chcemy reagować na zainteresowanie i zaufanie klientów, oferując kolejne aktualizacje i rozwój, aby nasz produkt
+            stawał się coraz lepszy.
+          </td>
+          <td>W trakcie</td>
+        </tr>
+        <tr>
+          <td>Nowe tryby świecenia</td>
+          <td>
+            Wraz z rozwojem produktu będziemy regularnie dodawać <strong>nowe tryby świecenia</strong> dostępne dla
+            wszystkich użytkowników naszych sterowników.
+            Dodatkowo każdy może zamówić <strong>własny, spersonalizowany tryb</strong>, który zostanie wgrany
+            indywidualnie na jego urządzenie.
+          </td>
+          <td>W planach</td>
+        </tr>
+        <tr>
+          <td>Platforma klienta</td>
+          <td>
+            Stworzenie internetowej platformy dla klientów, gdzie każdy będzie miał swoje konto z podglądem wszystkich
+            zakupionych sterowników i zestawów.
+            Na platformie będzie można: <strong>zamówić kolejne zestawy</strong>, <strong>dodatkowe tryby
+              świecenia</strong>,
+            <strong>aktualizować sterowniki</strong>, kontaktować się z nami oraz przekazywać swoje sugestie.
+            Dzięki temu platforma stanie się centralnym punktem zarządzania oświetleniem LED i komunikacji z firmą,
+            pozwalając klientom w pełni korzystać z możliwości sterowników i personalizacji.
+          </td>
+          <td>W planach</td>
+        </tr>
+
+        <tr>
+          <td>Moduł muzyczny</td>
+          <td>
+            Opracowanie modułu muzycznego, który będzie mógł łączyć się z dowolną liczbą sterowników LED w tej samej sieci
+            Wi-Fi i sterować ich oświetleniem w rytm muzyki.
+            Moduł będzie miał dwie opcje: <strong>przetwarzanie dźwięku z otoczenia za pomocą mikrofonu</strong> lub
+            <strong>bezpośrednie odtwarzanie muzyki z głośnika Bluetooth lub złącza AUX</strong>, z możliwością
+            powiązania ze swoim kontem Spotify.
+            Użytkownik będzie mógł wybierać tryby pracy, np. <strong>spokojniejszy, relaksacyjny</strong> lub
+            <strong>bardziej dynamiczny, dyskotekowy</strong>,
+            aby dopasować efekt świetlny do nastroju.
+          </td>
+          <td>Prototyp</td>
+        </tr>
+
+
+        <tr>
+          <td>Segmentacja paska</td>
+          <td>
+            Wprowadzenie możliwości <strong>segmentacji jednego fizycznego paska LED</strong>, czyli
+            dzielenia go na niezależne części (segmenty), które będą mogły świecić w różnych kolorach.
+            Obecnie możliwe jest grupowanie wielu sterowników, natomiast <strong>segmentacja</strong> pozwoli pójść w
+            drugą strone –
+            sterować różnymi fragmentami jednego paska tak, jakby były osobnymi jednostkami.
+            <br><br>
+            Dzięki temu użytkownik będzie mógł w aplikacji <strong>wskazać konkretne części paska</strong>, które mają
+            działać inaczej – np. jedna część w kolorze ciepłym, inna w chłodnym.
+            <br><br>
+            To rozwiązanie pozwoli w pełni wykorzystać potencjał jednego sterownika i stworzyć wyjątkowe, wielostrefowe
+            oświetlenie bez konieczności stosowania wielu urządzeń sterujących.
+          </td>
+          <td>W planach</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <footer style="background-color:#111; color:#fff; padding:40px 20px; text-align:center; margin-top:60px;">
+    <div style="max-width:800px; margin:0 auto;">
+      <h3 style="margin-bottom:10px; font-size:1.4rem;">Skontaktuj się z nami</h3>
+      <p style="margin-bottom:20px; font-size:0.95rem; color:#ccc;">
+        Masz pytania dotyczące sterowników?
+        Napisz do nas lub zadzwoń — chętnie odpowiemy!
       </p>
-      <button onclick="document.getElementById('sterownik').scrollIntoView({ behavior: 'smooth' })">
-        Zobacz szczegóły
-      </button>
-    </div>
 
-    <div class="card">
-      <h2>Sterownik + zestaw do montażu</h2>
-      <p>
-        Rozszerzona wersja podstawowego zestawu — otrzymujesz wszystko to, co zawiera sterownik, 
-        a dodatkowo przygotowujemy dla Ciebie kompletny zestaw gotowy do montażu i uruchomienia, 
-        bez lutowania i skomplikowanej konfiguracji. 
-        Zbieramy od Ciebie jedynie informacje o długości i rodzaju taśm LED, 
-        a my zajmujemy się całym technicznym doborem: odpowiednie zasilacze, 
-        punkty dodatkowego zasilania, przygotowanie przewodów i zespawanych połączeń. 
-        Wszystko jest tak przygotowane, abyś mógł jedynie umieścić taśmy w korytkach lub na ścianach, 
-        podłączyć kable zgodnie z instrukcją i cieszyć się gotową iluminacją.
+      <p style="margin:6px 0;"><strong>E-mail:</strong> <a href="mailto:kontakt@dutled.pl"
+          style="color:#4da3ff; text-decoration:none;">company.ledmp@gmail.com</a></p>
+      <p style="margin:6px 0;"><strong>Telefon:</strong> <a href="tel:+48123456789"
+          style="color:#4da3ff; text-decoration:none;">+48 576-990-971</a></p>
+
+      <hr style="border:none; border-top:1px solid #333; margin:25px 0;">
+
+      <p style="font-size:0.85rem; color:#777;">
+        &copy; wszystkie prawa zastrzeżone.
+        Projekt i wykonanie: <strong>Paulina Graczyk, Michał Mencfel</strong>
       </p>
-      <button onclick="document.getElementById('zestaw').scrollIntoView({ behavior: 'smooth' })">
-        Zobacz szczegóły
-      </button>
     </div>
+  </footer>
 
-    <div class="card">
-      <h2>Instalacja indywidualna</h2>
+
+  <div id="interestModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Wyraź swoje zainteresowanie</h3>
       <p>
-        Pełna usługa dla osób, które chcą spersonalizowaną iluminację dopasowaną do swojej przestrzeni i pomysłów.
-        Tutaj wchodzimy w bezpośredni kontakt z klientem – ustalamy, jakie efekty świetlne mają działać, 
-        jakie czujniki mają być podłączone i jak system ma reagować na różne zdarzenia w domu lub na podwórku.
+        Podaj swój adres e-mail, a powiadomimy Cię, gdy sprzedaż ruszy.
+        Dodatkowo otrzymasz <strong>kod rabatowy -20%</strong> na start 🎉
       </p>
-      <button onclick="document.getElementById('instalacja').scrollIntoView({ behavior: 'smooth' })">
-        Zobacz szczegóły
-      </button>
+      <form id="interestForm" onsubmit="submitInterest(event)">
+        <input type="email" id="emailInput" placeholder="Twój e-mail" required>
+        <label class="rodo">
+          <input type="checkbox" id="rodoCheckbox" required>
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu
+          oraz przesyłania informacji o ofercie zgodnie z polityką RODO.
+        </label>
+        <button type="submit" class="send-btn">Wyślij</button>
+      </form>
     </div>
   </div>
-</section>
 
 
-<!-- Sekcje produktów szczegółowo -->
-<section id="sterownik" class="product-section container section-balanced">
-  <img src="images/4.jpg" alt="Sterownik LED">
-  <div class="product-text">
-    <h3>Sterownik LED</h3>
-	<p>Planowany start sprzedaż Luty 2026</p>
-  <p>Palnowana cena: 119zł</p>
-  
-  <p>W zestawie otrzymujesz:</p>
-	<ul>
-		<li>
-        <strong>W pełni zaprogramowany sterownik</strong> z zestawem 10 gotowych trybów świecenia,
-          których liczba będzie stopniowo zwiększana w ramach darmowych aktualizacji.
-		</li>
-		<li>Darmowe aktualizacje <span class="highlight">oprogramowania i aplikacji mobilnej</span> – regularnie dodajemy nowe tryby i funkcje</li>
-		<li>Możliwość stworzenia własnego, unikalnego trybu świecenia przygotowanego <strong>specjalnie dla Ciebie</strong></li>
-		<li>Pełna obsługa przez Wi-Fi – steruj światłem z dowolnego miejsca w domu</li>
-		<li>Tworzenie zdarzeń – <span class="highlight">automatyczne włączanie lub wyłączanie</span> o określonej godzinie</li>
-		<li>Obsługa do 3600 diod LED (limit ten może zostać zwiększony w kolejnych wersjach oprogramowania)</li>
-		<li><strong>Wsparcie techniczne</strong> i 2 lata gwarancji na sterownik</li>
-	</ul>
-    <p>
-      <strong>Uwaga:</strong> przy samodzielnym montażu niezwykle ważne jest bezpieczne podłączenie oraz odpowiednie dobranie zasilania. 
-      Taśmy LED wymagają stabilnego i wystarczająco mocnego źródła zasilania oraz regularnego „wstrzykiwania” prądu w dłuższych odcinkach, 
-      aby świeciły równomiernie i nie przegrzewały się. 
-<a href="javascript:void(0)" onclick="scrollToSection('led-info')" style="color:#007bff; text-decoration:none;">
-  Więcej o samych teśmach LED możesz przeczytać tutaj
-</a>
-    </p>
-	
-	<button class="info-btn" onclick="openModal('driver')">Zainteresowany?</button>
-  </div>
-</section>
 
+  <script>
+    const photoFolder = 'images/';
+    const photoCount = 9;
 
-<section id="zestaw" class="product-section container section-balanced">
-  <img src="images/5.jpg" alt="Zestaw do montażu">
-  <div class="product-text">
-    <h3>Zestaw do montażu</h3>
-	<p>Planowany start sprzedaż: Marzec 2026</p>
-    <ul class="product-list">
-      <li>Sterownik LED WS28X z pełnym oprogramowaniem i wszystkimi standardowymi funkcjami</li>
-      <li>Taśmy LED WS28X przycięte i połączone według Twojego projektu – wszystkie połączenia zespawane i zabezpieczone</li>
-      <li>Dopasowane zasilacze umieszczone w estetycznych obudowach</li>
-      <li>Komplet przewodów przygotowany specjalnie pod długość i układ Twojej instalacji</li>
-      <li>Wyznaczone punkty dodatkowego zasilania w przypadku dłuższych taśm</li>
-      <li>Szczegółową instrukcję podłączenia</li>
-      <li><strong>Wsparcie techniczne</strong> i 2 lata gwarancji sprzęty otzymany od nas</li>
-    </ul>
+    const videoFolder = 'videos/';
+    const videoCount = 2;
 
-	<button class="info-btn" onclick="openModal('kit')">Zainteresowany?</button>
-  </div>
-</section>
+    const photoGallery = document.getElementById('photo-gallery');
+    const videoGallery = document.getElementById('video-gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.lightbox .close');
+    const prevBtn = document.querySelector('.lightbox .prev');
+    const nextBtn = document.querySelector('.lightbox .next');
 
+    let photos = [];
+    let currentIndex = 0;
 
-<section id="instalacja" class="product-section container section-balanced">
-  <img src="images/6.jpg" alt="Instalacja indywidualna">
-  <div class="product-text">
-    <h3>Instalacja indywidualna</h3>
-	<p>Planowany start sprzedaż: Kwiecień 2026</p>
-
-
-<p>W ramach instalacji indywidualnej oferujemy:</p>
-<ul>
-  <li>Omówienie i zaplanowanie działania instalacji zgodnie z oczekiwaniami klienta</li>
-  <li>Dobór oraz dostarczenie gotowych czujników i urządzeń współpracujących ze sterownikiem</li>
-  <li>Integrację oświetlenia LED z czujnikami i zdarzeniami (np. włączanie przy ruchu, otwarciu drzwi, aktywacji bramy itp.)</li>
-  <li>Pełne przygotowanie zestawu sterownika z oprogramowaniem i konfiguracją – gotowego do montażu</li>
-  <li>Indywidualne, spersonalizowane tryby świecenia stworzone wyłącznie dla danej instalacji</li>
-  <li><strong>Wsparcie techniczne</strong> oraz 2 lata gwarancji na sprzęt dostarczony przez nas</li>
-</ul>
-
-<p class="note">
-  <em>Uwaga:</em> Zestaw dostarczany przez nas jest w pełni przygotowany po stronie sterownika i oprogramowania, jednak nie wykonujemy montażu fizycznego ani prac związanych z instalacją elektryczną.  
-  Instalacja gniazdek, przewodów czy korytek LED powinna być wykonana po stronie klienta lub przez jego elektryka.
-</p>
-
-
-
-	<button class="info-btn" onclick="openModal('custom')">Zainteresowany?</button>
-  </div>
-</section>
-
-
-<!-- Sekcja Możliwości sterownika -->
-<section id="mozliwosci" class="possibility">
-  <h2>Możliwości sterownika</h2>
-  <p class="possibility-description">
-    Nasz sterownik daje Ci pełną kontrolę nad światłem – od ręcznego wyboru koloru po inteligentne sterowanie i rozwijanie możliwości wraz z aktualizacjami.
-  </p>
-
-  <div class="possibility-cards">
-    <div class="card">
-      <h3>Ustawianie koloru w czasie rzeczywistym</h3>
-      <p>Wybierz dowolny kolor na kole barw i od razu zobacz efekt na pasku LED. Nie trzeba wysyłać koloru – zmiana jest natychmiastowa, co pozwala precyzyjnie dobrać odcień do nastroju lub wystroju wnętrza.</p>
-    </div>
-
-    <div class="card">
-      <h3>Różnorodne tryby świecenia</h3>
-      <p>Do wyboru jest 10 efektów – od płynnych przejść między kolorami, przez efekt tęczy i symulacje wschodu słońca, po „świąteczne węże”. Każdy znajdzie coś dla siebie.</p>
-    </div>
-
-    <div class="card">
-      <h3>Tryby personalizowane</h3>
-      <p>Możesz zamówić indywidualny tryb świecenia stworzony specjalnie dla Ciebie. Idealne rozwiązanie dla osób, które chcą, by ich oświetlenie było naprawdę wyjątkowe.</p>
-    </div>
-
-    <div class="card">
-      <h3>Ustawianie harmonogramu</h3>
-      <p>Dodawaj codzienne zdarzenia – ustaw, o której godzinie diody LED mają się włączyć, wyłączyć lub zmienić tryb. Dzięki temu oświetlenie działa automatycznie, a Ty nie musisz o tym pamiętać.</p>
-    </div>
-
-    <div class="card">
-      <h3>Pełna rekonfigurowalność i bezpieczeństwo</h3>
-      <p>Możesz dynamicznie zwiększać liczbę diód LED, które obsługuje sterownik, nadawać mu własną nazwę w sieci lub zmienić samą sieć. Każdy sterownik chroniony jest indywidualnym PIN-em właściciela, co gwarantuje bezpieczeństwo konfiguracji.</p>
-    </div>
-
-    <div class="card">
-      <h3>Automatyczne wykrywanie</h3>
-      <p>Po pierwszej konfiguracji sterownik staje się widoczny w sieci Wi-Fi przez co inni domownicy posiadający naszą aplikację mogą go dodać za pomocą jednego kliknięcia, bez konieczności ponownej konfiguracji sterownika. Strowniki od razu pojawi się jako widoczny w aplikacji i gotowy do obsługi.</p>
-    </div>
-    <div class="card">
-      <h3>Tworzenie grup sterowników</h3>
-      <p>Połącz kilka sterowników działających w tej samej sieci Wi-Fi w jedną grupę. Pozwala to sterować wszystkimi diodami LED w domu jednym kliknięciem.</p>
-    </div>
-
-    <div class="card">
-      <h3>Sterowanie przez Wi-Fi</h3>
-      <p>Dedykowana aplikacja umożliwia łatwe i wygodne sterowanie z poziomu telefonu – zmieniaj kolory, efekty i ustawienia z dowolnego miejsca w domu.</p>
-    </div>
-
-    <div class="card">
-      <h3>Zdalne aktualizacje</h3>
-      <p>Sterownik obsługuje zdalne aktualizacje oprogramowania, które umożliwiają dodawanie nowych funkcji i efektów. Kupując produkt teraz, wspierasz jego rozwój i zyskujesz coraz więcej możliwości w przyszłości. Aktualizacje trybów indywidualnych są realizowane na zamówienie.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- Sekcja galerii -->
-<section id="galeria" class="gallery-section container">
-  <h2>Galeria</h2>
-  <p>Zobacz nasze realizacje w formie zdjęć i nagrań:</p>
-
-  <!-- CZĘŚĆ ZDJĘCIOWA -->
-  <div class="gallery-block">
-    <h3>📸 Zdjęcia</h3>
-    <div id="photo-gallery" class="gallery-grid"></div>
-  </div>
-
-  <!-- CZĘŚĆ WIDEO -->
-  <div class="gallery-block">
-    <h3>🎬 Nagrania</h3>
-    <div id="video-gallery" class="gallery-grid"></div>
-  </div>
-
-  <!-- LIGHTBOX (tylko dla zdjęć) -->
-  <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" src="">
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </div>
-</section>
-
-
-
-
-<!-- Sekcje inforamcji o led -->
-<section id="led-info" class="offer">
-  <h2>Pigułka wiedzy o paskach LED</h2>
-  <p class="offer-description">
-    Poznaj taśmy LED, z którymi współpracuje nasz sterownik, aby dobrać idealną dla siebie.  
-    Wszystkie dostępne są w wariantach <strong>30/60</strong> diod na metr (te gęstości oferowane są przez nas w usłudze "zastwa gotowy do montażu"),  
-    a także <strong>72</strong> i <strong>144</strong> diód na metr.  
-    Pamiętaj – im więcej diód LED, tym większe zapotrzebowanie na moc i częstsze „wstrzykiwanie” zasilania.  
-    Dobierz zasilanie rozsądnie lub skorzystaj z naszej oferty.
-  </p>
-
-  <div class="offer-cards">
-
-    <div class="card">
-  <h3>WS2811</h3>
-  <p>
-    Taśma <strong>WS2811</strong> to klasyczne i niezawodne rozwiązanie adresowalne działające na napięciu 
-    <strong>12V</strong>. Każdy układ sterujący obsługuje <strong>trzy diody LED jako jeden punkt świetlny</strong>, 
-    więc nie można kontrolować każdej z nich osobno.  
-  </p>
-  <p>
-    W praktyce nie stanowi to problemu przy <strong>dłuższych instalacjach</strong> — np. wokół domu, 
-    garażu czy podbitki. Różnica pomiędzy pojedynczym a potrójnym sterowaniem jest wtedy praktycznie 
-    niezauważalna, a efekt pozostaje płynny i spójny.  
-  </p>
-  <p>
-    Dzięki zasilaniu 12V, WS2811 <strong>lepiej znosi spadki napięcia</strong> i pozwala na  
-    <strong>rzadsze wstrzykiwania zasilania</strong>. To sprawia, że instalacja jest prostsza w wykonaniu i 
-    bardziej stabilna więc są to idalne budżetowe paski dla długich insalacji.  
-  </p>
-  <p>
-    To świetny, <strong>budżetowy wybór</strong> dla osób, które chcą stworzyć <strong>długie odcinki taśm LED</strong> 
-    bez utraty jakości światła — z pełnymi kolorami RGB, płynnymi efektami i dużą niezawodnością.
-  </p>
-    </div>
-
-    <div class="card">
-       <h3>WS2812B</h3>
-  <p>
-    <strong>WS2812B</strong> to nowoczesna taśma LED działająca na napięciu <strong>5V</strong>, 
-    w której <strong>każda dioda jest w pełni adresowalna</strong>. Oznacza to, że każda z nich 
-    może świecić <strong>innym kolorem i z inną intensywnością</strong>, co pozwala tworzyć 
-    wyjątkowo płynne animacje i efekty świetlne z pełną kontrolą nad każdym punktem.  
-    <br><br>
-    Taśma doskonale sprawdza się w <strong>krótszych instalacjach</strong> – np. w domu, 
-    wokół sufitu podwieszanego, biurka, wnęk, czy w małych projektach dekoracyjnych, 
-    gdzie liczy się <strong>dokładność, płynność i efekt wizualny</strong>.  
-    <br><br>
-    Warto jednak pamiętać, że WS2812B pracuje w systemie 5V, co oznacza 
-    <strong>większą wrażliwość na spadki napięcia</strong>. Przy dłuższych odcinkach lub gęstych taśmach konieczne jest <strong>częstsze wstrzykiwanie zasilania</strong>, aby zachować 
-    pełną jasność i stabilność kolorów.  
-    <br><br>
-    Dlatego WS2812B to <strong>idealny wybór do efektownych, krótszych instalacji</strong>, 
-    w których chcesz uzyskać maksymalną płynność, kolorystykę i indywidualne sterowanie każdą diodą.
-  </p>
-    <div class="info-note">
-    <p>
-      🔹 Taśma <strong>WS2813</strong> to ulepszona wersja WS2812B, wyposażona w 
-      <strong>dodatkową linię danych zapasową</strong>, która zapewnia ciągłość działania nawet przy awarii jednej diody.  
-      Nasz sterownik jest z nią <strong>w pełni kompatybilny</strong>, choć nie oferujemy jej w standardowych zestawach montażowych.  
-      W praktyce działanie i efekty świetlne pozostają <strong>takie same jak w WS2812B</strong>.
-    </p>
-  </div>
-    </div>
-
-    <div class="card">
-  <h3>WS2815</h3>
-  <p>
-    <strong>WS2815</strong> to nowoczesne rozwinięcie popularnej serii WS2812B – łączy jej precyzyjne sterowanie 
-    każdą diodą LED z zaletami napięcia <strong>12V</strong>, znanymi z modelu WS2811.  
-  </p>
-  <p>
-    Każdy punkt świetlny jest <strong>adresowalny indywidualnie</strong>, co pozwala tworzyć niezwykle płynne 
-    przejścia kolorów, animacje i efekty świetlne o wysokiej dokładności.  
-    Jednocześnie zasilanie 12V zapewnia <strong>większą stabilność napięcia</strong> i 
-    <strong>rzadszą potrzebę wstrzykiwania zasilania</strong> – nawet przy dłuższych odcinkach taśmy.  
-  </p>
-  <p>
-    WS2815 posiada również <strong>podwójną linię sygnałową</strong>, dzięki czemu w przypadku uszkodzenia jednej 
-    diody pozostałe nadal działają, co czyni tę taśmę wyjątkowo niezawodną.  
-  </p>
-  <p>
-    To idealny wybór dla osób, które chcą połączyć <strong>pełną adresowalność</strong> z 
-    <strong>prostotą montażu i wysoką stabilnością</strong>.  
-    Choć WS2815 są najdroższym rozwiązaniem, oferuje <strong>najwyższą jakość i równomierne oświetlenie</strong> nawet 
-    przy dużych instalacjach.
-  </p>
-    </div>
-
-  </div>
-  
-  <div class="led-calculator">
-  <h3>Kalkulator zasilania</h3>
-  <p>Oblicz, jaka moc zsilania będzie potrzebna dla Twojej instalacji LED:</p>
-
-  <label for="ledDensity">Wybierz gęstość LED:</label>
-  <select id="ledDensity">
-    <option value="30">30 LED/m</option>
-    <option value="60">60 LED/m</option>
-    <option value="72">72 LED/m</option>
-    <option value="144">144 LED/m</option>
-  </select>
-
-  <label for="length">Długość instalacji (m):</label>
-  <input type="number" id="length" min="1" value="1">
-
-  <button onclick="calculatePower()">Oblicz</button>
-
-<p>Szacunkowa moc zasilania (przy maksymalnym ustawieniu bieli): <span id="powerResult">0</span> W</p>
-
-</div>
-
-</section>
-
-
-
-<!-- Sekcje planów na przyszłość -->
-<section id="plany" class="container">
-  <h2>Plany na przyszłość</h2>
-  <p>Tutaj będziemy wpisywać pomysły, na nowe funkcje i usprawnienia:</p>
-  
-  <table border="1" cellspacing="0" cellpadding="5">
-  <thead>
-  <tr>
-    <th style="width: 25%;">Plan / Funkcja</th>
-    <th style="width: 60%;">Opis</th>
-    <th style="width: 15%;">Status</th>
-  </tr>
-</thead>
-    <tbody id="plansTableBody">
-<tr>
-  <td>Nowe tryby świecenia</td>
-  <td>
-    Wraz z rozwojem produktu będziemy regularnie dodawać <strong>nowe tryby świecenia</strong> dostępne dla wszystkich użytkowników sterowników LED.
-    Dodatkowo każdy może zamówić <strong>własny, spersonalizowany tryb</strong>, który zostanie wgrany indywidualnie na jego urządzenie.
-  </td>
-  <td>W planach</td>
-</tr>
-<tr>
-  <td>Platforma klienta</td>
-  <td>
-    Stworzenie internetowej platformy dla klientów, gdzie każdy będzie miał swoje konto z podglądem wszystkich zakupionych sterowników i zestawów. 
-    Na platformie będzie można: <strong>zamówić kolejne zestawy</strong>, <strong>dodatkowe tryby świecenia</strong>, 
-    <strong>aktualizować sterowniki</strong>, kontaktować się z nami oraz przekazywać swoje sugestie. 
-    Dzięki temu platforma stanie się centralnym punktem zarządzania oświetleniem LED i komunikacji z firmą, 
-    pozwalając klientom w pełni korzystać z możliwości sterowników i personalizacji.
-  </td>
-  <td>W planach</td>
-</tr>
-
-<tr>
-  <td>Moduł muzyki</td>
-  <td>
-    Opracowanie modułu muzyki, który będzie mógł łączyć się z dowolną liczbą sterowników LED w tej samej sieci Wi-Fi i sterować ich oświetleniem w rytm muzyki. 
-    Moduł będzie miał dwie opcje: <strong>przetwarzanie dźwięku z otoczenia za pomocą mikrofonu</strong> lub 
-    <strong>bezpośrednie odtwarzanie muzyki z głośnika Bluetooth lub złącza AUX</strong>, z możliwością powiązania ze swoim kontem Spotify. 
-    Zadaniem modułu będzie przetwarzanie muzyki i wysyłanie sygnału do sterowników, aby oświetlenie reagowało w rytm dźwięku. 
-    Użytkownik będzie mógł wybierać tryby pracy, np. <strong>spokojniejszy, relaksacyjny</strong> lub <strong>bardziej dynamiczny, dyskotekowy</strong>, 
-    aby dopasować efekt świetlny do nastroju.
-  </td>
-  <td>Prototyp</td>
-</tr>
-
-
-<tr>
-  <td>Segmentacja paska</td>
-  <td>
-    W planach jest wprowadzenie możliwości <strong>segmentacji jednego fizycznego paska LED</strong>, czyli dzielenia go na niezależne części (segmenty), które będą mogły świecić w różnych kolorach lub prezentować różne efekty. 
-    Obecnie możliwe jest grupowanie wielu sterowników, natomiast <strong>segmentacja</strong> pozwoli pójść w drugą strone – 
-    sterować różnymi fragmentami jednego paska tak, jakby były osobnymi jednostkami.
-    <br><br>
-    Dzięki temu użytkownik będzie mógł w aplikacji <strong>wskazać konkretne części paska</strong>, które mają działać inaczej – np. jedna część w kolorze ciepłym, inna w chłodnym, a jeszcze inna z efektem tęczy.
-    <br><br>
-    To rozwiązanie pozwoli w pełni wykorzystać potencjał jednego sterownika i stworzyć wyjątkowe, wielostrefowe oświetlenie bez konieczności stosowania wielu urządzeń.
-  </td>
-  <td>W planach</td>
-</tr>
-
-<tr>
-  <td>Rozwój funkcjonalności i aplikacji</td>
-  <td>
-    Ciągły rozwój naszych sterowników LED i aplikacji mobilnej, aby były coraz bardziej przyjazne dla użytkownika. 
-    W planach jest m.in.: <strong>rozszerzenie możliwości zdarzeń</strong> – możliwość ustawiania zdarzeń 
-    dla LEDów z wybraną datą lub zakresem dat, a nie tylko codziennie; <strong>optymalizacja</strong> 
-    w celu zwiększenia liczby obsługiwanych diód; oraz wprowadzanie nowych funkcji i usprawnień w samej aplikacji, 
-    tak aby użytkownicy mogli w pełni korzystać z potencjału swojego oświetlenia. 
-    Wszystkie aktualizacje będą dostępne <strong>darmowo</strong>. 
-    <br><br>
-    Dodatkowo, przewidujemy <strong>wiele innych funkcji</strong>, które przyjdą nam do głowy lub które zasugerują sami użytkownicy w trakcie rozwoju produktu. 
-    Chcemy reagować na zainteresowanie i zaufanie klientów, oferując kolejne aktualizacje i rozwój, aby produkt stawał się coraz lepszy.
-  </td>
-  <td>W planach</td>
-</tr>
-
-
-
-    </tbody>
-  </table>
-</section>
-
-
-<footer style="background-color:#111; color:#fff; padding:40px 20px; text-align:center; margin-top:60px;">
-  <div style="max-width:800px; margin:0 auto;">
-    <h3 style="margin-bottom:10px; font-size:1.4rem;">Skontaktuj się z nami</h3>
-    <p style="margin-bottom:20px; font-size:0.95rem; color:#ccc;">
-      Masz pytania dotyczące sterowników?  
-      Napisz do nas lub zadzwoń — chętnie odpowiemy!
-    </p>
-
-    <p style="margin:6px 0;"><strong>E-mail:</strong> <a href="mailto:kontakt@dutled.pl" style="color:#4da3ff; text-decoration:none;">company.ledmp@gmail.com</a></p>
-    <p style="margin:6px 0;"><strong>Telefon:</strong> <a href="tel:+48123456789" style="color:#4da3ff; text-decoration:none;">+48 576-990-971</a></p>
-
-    <hr style="border:none; border-top:1px solid #333; margin:25px 0;">
-
-    <p style="font-size:0.85rem; color:#777;">
-      &copy; wszystkie prawa zastrzeżone.  
-      Projekt i wykonanie: <strong>Paulina Graczyk, Michał Mencfel</strong>
-    </p>
-  </div>
-</footer>
-
-
-<div id="interestModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h3>Wyraź swoje zainteresowanie</h3>
-    <p>
-      Podaj swój adres e-mail, a powiadomimy Cię, gdy sprzedaż ruszy.
-      Dodatkowo otrzymasz <strong>kod rabatowy -20%</strong> na start 🎉
-    </p>
-    <form id="interestForm" onsubmit="submitInterest(event)">
-      <input type="email" id="emailInput" placeholder="Twój e-mail" required>
-      <label class="rodo">
-        <input type="checkbox" id="rodoCheckbox" required>
-        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu
-        oraz przesyłania informacji o ofercie zgodnie z polityką RODO.
-      </label>
-      <button type="submit" class="send-btn">Wyślij</button>
-    </form>
-  </div>
-</div>
-
-
-
-<script>
-const photoFolder = 'images/';
-const photoCount = 9;
-
-const videoFolder = 'videos/';
-const videoCount = 2;
-
-const photoGallery = document.getElementById('photo-gallery');
-const videoGallery = document.getElementById('video-gallery');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const closeBtn = document.querySelector('.lightbox .close');
-const prevBtn = document.querySelector('.lightbox .prev');
-const nextBtn = document.querySelector('.lightbox .next');
-
-let photos = [];
-let currentIndex = 0;
-
-// ŁADOWANIE ZDJĘĆ
-for (let i = 1; i <= photoCount; i++) {
-  const img = document.createElement('img');
-  img.src = `${photoFolder}g${i}.jpg`;
-  img.addEventListener('click', () => openLightbox(i - 1));
-  photoGallery.appendChild(img);
-  photos.push(img.src);
-}
-
-// ŁADOWANIE WIDEO
-for (let i = 1; i <= videoCount; i++) {
-  const video = document.createElement('video');
-  video.src = `${videoFolder}v${i}.mp4`;
-  video.controls = true;
-  video.muted = true;
-  videoGallery.appendChild(video);
-}
-
-// === LIGHTBOX ===
-function openLightbox(index) {
-  currentIndex = index;
-  lightboxImg.src = photos[currentIndex];
-  lightbox.style.display = 'flex';
-}
-
-closeBtn.onclick = () => lightbox.style.display = 'none';
-
-prevBtn.onclick = () => {
-  currentIndex = (currentIndex - 1 + photos.length) % photos.length;
-  lightboxImg.src = photos[currentIndex];
-};
-nextBtn.onclick = () => {
-  currentIndex = (currentIndex + 1) % photos.length;
-  lightboxImg.src = photos[currentIndex];
-};
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) lightbox.style.display = 'none';
-});
-</script>
-
-
-
-
-<script>
-  function scrollToSection(id) {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-</script>
-
-
-<!-- Loader -->
-<div id="loaderOverlay">
-  <div class="spinner"></div>
-  <span>Wysyłanie danych...</span>
-</div>
-
-<script>
-  const API_BASE_URL = "https://webbe-wlc1.onrender.com/interests"; 
-  //const API_BASE_URL = "https://api.ipify.org?format=json";
-
-  let selectedProduct = null;
-
-  function openModal(product) {
-    selectedProduct = product.toUpperCase();
-    document.getElementById('interestModal').style.display = 'flex';
-  }
-
-  function closeModal() {
-    document.getElementById('interestModal').style.display = 'none';
-  }
-
-  function showLoader(show) {
-    document.getElementById('loaderOverlay').style.display = show ? 'flex' : 'none';
-  }
-
-  async function submitInterest(event) {
-    event.preventDefault();
-
-    const email = document.getElementById('emailInput').value.trim();
-    const rodoChecked = document.getElementById('rodoCheckbox').checked;
-
-    if (!email) {
-      alert('Podaj adres e-mail.');
-      return;
+    // ŁADOWANIE ZDJĘĆ
+    for (let i = 1; i <= photoCount; i++) {
+      const img = document.createElement('img');
+      img.src = `${photoFolder}g${i}.jpg`;
+      img.addEventListener('click', () => openLightbox(i - 1));
+      photoGallery.appendChild(img);
+      photos.push(img.src);
     }
 
-    if (!rodoChecked) {
-      alert('Musisz zaakceptować zgodę RODO.');
-      return;
+    // ŁADOWANIE WIDEO
+    for (let i = 1; i <= videoCount; i++) {
+      const video = document.createElement('video');
+      video.src = `${videoFolder}v${i}.mp4`;
+      video.controls = true;
+      video.muted = true;
+      videoGallery.appendChild(video);
     }
 
-    showLoader(true);
-
-    let ipAddress = "unknown";
-    try {
-      const ipResponse = await fetch(IP_API_URL);
-      const ipData = await ipResponse.json();
-      ipAddress = ipData.ip || "unknown";
-    } catch (err) {
-      console.warn("Nie udało się pobrać IP:", err);
+    // === LIGHTBOX ===
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = photos[currentIndex];
+      lightbox.style.display = 'flex';
     }
 
-    const rodoText =
-      "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu w sprawie produktu LEDMP.";
+    closeBtn.onclick = () => lightbox.style.display = 'none';
 
-    const data = {
-      email: email,
-      productType: selectedProduct,
-      rodoConsentGiven: rodoChecked,
-      rodoConsentText: rodoText,
-      ipAddress: ipAddress
+    prevBtn.onclick = () => {
+      currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+      lightboxImg.src = photos[currentIndex];
+    };
+    nextBtn.onclick = () => {
+      currentIndex = (currentIndex + 1) % photos.length;
+      lightboxImg.src = photos[currentIndex];
     };
 
-    console.log("📤 Wysyłam JSON do backendu:", data);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.style.display = 'none';
+    });
+  </script>
 
-    try {
-      const response = await fetch(API_BASE_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
 
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(text);
+
+
+  <script>
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+
+
+  <!-- Loader -->
+  <div id="loaderOverlay">
+    <div class="spinner"></div>
+    <span>Wysyłanie danych...</span>
+  </div>
+
+  <script>
+    const API_BASE_URL = "https://webbe-wlc1.onrender.com/interests";
+    //const API_BASE_URL = "https://api.ipify.org?format=json";
+
+    let selectedProduct = null;
+
+    function openModal(product) {
+      selectedProduct = product.toUpperCase();
+      document.getElementById('interestModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('interestModal').style.display = 'none';
+    }
+
+    function showLoader(show) {
+      document.getElementById('loaderOverlay').style.display = show ? 'flex' : 'none';
+    }
+
+    async function submitInterest(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('emailInput').value.trim();
+      const rodoChecked = document.getElementById('rodoCheckbox').checked;
+
+      if (!email) {
+        alert('Podaj adres e-mail.');
+        return;
       }
 
-      const result = await response.json();
-      console.log("✅ Odpowiedź backendu:", result);
+      if (!rodoChecked) {
+        alert('Musisz zaakceptować zgodę RODO.');
+        return;
+      }
 
-      alert("Dziękujemy! Zapisano Twoje zainteresowanie.");
-      closeModal();
-    } catch (error) {
-      console.error("❌ Błąd przy wysyłaniu:", error);
-      alert("Wystąpił problem przy zapisie zainteresowania.");
-    } finally {
-      showLoader(false);
+      showLoader(true);
+
+      let ipAddress = "unknown";
+      try {
+        const ipResponse = await fetch(IP_API_URL);
+        const ipData = await ipResponse.json();
+        ipAddress = ipData.ip || "unknown";
+      } catch (err) {
+        console.warn("Nie udało się pobrać IP:", err);
+      }
+
+      const rodoText =
+        "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu kontaktu w sprawie produktu LEDMP.";
+
+      const data = {
+        email: email,
+        productType: selectedProduct,
+        rodoConsentGiven: rodoChecked,
+        rodoConsentText: rodoText,
+        ipAddress: ipAddress
+      };
+
+      console.log("📤 Wysyłam JSON do backendu:", data);
+
+      try {
+        const response = await fetch(API_BASE_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+          const text = await response.text();
+          throw new Error(text);
+        }
+
+        const result = await response.json();
+        console.log("✅ Odpowiedź backendu:", result);
+
+        alert("Dziękujemy! Zapisano Twoje zainteresowanie.");
+        closeModal();
+      } catch (error) {
+        console.error("❌ Błąd przy wysyłaniu:", error);
+        alert("Wystąpił problem przy zapisie zainteresowania.");
+      } finally {
+        showLoader(false);
+      }
     }
-  }
-</script>
+  </script>
 
 
 
 
 
-<script>
-  function calculatePower() {
-    const density = parseInt(document.getElementById('ledDensity').value);
-    const length = parseFloat(document.getElementById('length').value);
+  <script>
+    function calculatePower() {
+      const density = parseInt(document.getElementById('ledDensity').value);
+      const length = parseFloat(document.getElementById('length').value);
 
-    let powerPerMeter = 8; 
-    if (density !== 30) {
-      powerPerMeter = 8 * (density / 30);
+      let powerPerMeter = 8;
+      if (density !== 30) {
+        powerPerMeter = 8 * (density / 30);
+      }
+
+      const totalPower = powerPerMeter * length;
+      document.getElementById('powerResult').textContent = totalPower.toFixed(1);
     }
-
-    const totalPower = powerPerMeter * length;
-    document.getElementById('powerResult').textContent = totalPower.toFixed(1);
-  }
-</script>
+  </script>
 
 
-<dialog id="imgDialog">
-  <img id="dialogImg" src="" style="max-width:90%; max-height:90%;">
-  <button onclick="document.getElementById('imgDialog').close()">Zamknij</button>
-</dialog>
+  <dialog id="imgDialog">
+    <img id="dialogImg" src="" style="max-width:90%; max-height:90%;">
+    <button onclick="document.getElementById('imgDialog').close()">Zamknij</button>
+  </dialog>
 
-<script>
-function openDialog(src) {
-  const dialog = document.getElementById('imgDialog');
-  document.getElementById('dialogImg').src = src;
-  dialog.showModal();
-}
-</script>
+  <script>
+    function openDialog(src) {
+      const dialog = document.getElementById('imgDialog');
+      document.getElementById('dialogImg').src = src;
+      dialog.showModal();
+    }
+  </script>
 </body>
 
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  (function () {
-    const TARGET_URL = "https://webbe-wlc1.onrender.com/interests/health";
-    const INTERVAL_MS = (14 * 60 + 30) * 1000; // 14 min 30 s = 870000 ms
+  document.addEventListener("DOMContentLoaded", () => {
+    (function () {
+      const TARGET_URL = "https://webbe-wlc1.onrender.com/interests/health";
+      const INTERVAL_MS = (14 * 60 + 30) * 1000; // 14 min 30 s = 870000 ms
 
-    async function doFetch() {
-      const now = new Date();
-      try {
-        console.log(`[${now.toLocaleTimeString()}] 🔄 Wysyłam GET → ${TARGET_URL}`);
-        const resp = await fetch(TARGET_URL, { method: 'GET', cache: 'no-store' });
-        console.log(`[${now.toLocaleTimeString()}] ✅ Odpowiedź: ${resp.status}`);
-      } catch (err) {
-        console.error(`[${now.toLocaleTimeString()}] ❌ Błąd fetch: ${err && err.message ? err.message : err}`);
+      async function doFetch() {
+        const now = new Date();
+        try {
+          console.log(`[${now.toLocaleTimeString()}] 🔄 Wysyłam GET → ${TARGET_URL}`);
+          const resp = await fetch(TARGET_URL, { method: 'GET', cache: 'no-store' });
+          console.log(`[${now.toLocaleTimeString()}] ✅ Odpowiedź: ${resp.status}`);
+        } catch (err) {
+          console.error(`[${now.toLocaleTimeString()}] ❌ Błąd fetch: ${err && err.message ? err.message : err}`);
+        }
       }
-    }
 
-    doFetch();
-    setInterval(doFetch, INTERVAL_MS);
+      doFetch();
+      setInterval(doFetch, INTERVAL_MS);
 
-    console.log(`⏱️ Harmonogram uruchomiony — pierwsze wywołanie od razu, następne co ${INTERVAL_MS / 1000}s`);
-  })();
-});
+      console.log(`⏱️ Harmonogram uruchomiony — pierwsze wywołanie od razu, następne co ${INTERVAL_MS / 1000}s`);
+    })();
+  });
 </script>
 
 </html>
