@@ -589,6 +589,12 @@ body {
   #galeria img {
     display: block !important;
   }
+
+  .logo {
+    top: 15px;
+    transform: none; 
+    left: 2%; 
+  }
 }
 
 
@@ -757,7 +763,7 @@ body {
 /* logo po lewej, nie psuje środka */
 .logo {
   position: absolute;
-  left: 40px; /* przesunięcie od lewej krawędzi */
+  left: 2%; /* przesunięcie od lewej krawędzi */
   top: 50%;
   transform: translateY(-50%);
 }
